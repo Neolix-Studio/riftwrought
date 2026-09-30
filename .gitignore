@@ -1,0 +1,31 @@
+# Godot caches and exports
+.godot/
+/android/
+export_presets.cfg
+*.tmp
+
+# macOS
+.DS_Store
+.obsidian/
+.claude/
+.tools/
+
+# Third-party art and models (CC0 packs, not redistributed here)
+assets/
+models/
+references/
+*/assets/
+*/addons/
+
+# Screenshots and captured test evidence (large; selected shots are on neolix.studio)
+*/evidence/
+docs/testing/
+docs/narration/
+docs/concepts/
+
+# Design corpus and working notes: kept private
+design/
+docs/
+CLAUDE.md
+PROJECT_MEMORY.md
+docs_README_private.md

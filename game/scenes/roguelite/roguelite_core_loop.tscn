@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3]
+
+; Riftwrought — the ISOLATED ROGUELITE CORE LOOP REVIEW (decision D-220).
+;
+; Nexus -> Enter Rift -> three authored greybox rooms -> temporary reward ->
+; elite -> Nexus. Built to be PLAYED and judged, not extended.
+;
+; IT IS NOT THE PROJECT ENTRYPOINT AND MUST NEVER BECOME ONE. `run/main_scene`
+; is still `res://scenes/app/prototype_app.tscn`, and this scene is launched
+; explicitly. It loads no other scene, writes nothing to disk, adds no InputMap
+; action, and touches no accepted value.
+;
+; DELIBERATELY GREYBOXED, AND THE CLAIM IS SCOPED HONESTLY. Every surface,
+; mass, gate and marker THIS REVIEW AUTHORS is primitive Godot geometry in a
+; flat material, built in code by `RogueliteRoomModule`: no environment asset,
+; texture, shader file, particle system or new third-party payload, and the
+; review's own scripts name none, which its verification proves by a raw scan
+; with comments included.
+;
+; What it does NOT claim is that no registered asset is on screen. The reused,
+; unmodified kernels bring their own already-registered models with them — the
+; player and the Graveblade are the KayKit rigs Gate A imported, and Gate 1D's
+; `FirstMvpItemDrop` shows the registered sword model for a ground item. That
+; is reuse of an accepted, already-inventoried asset through an unedited class,
+; not a new asset and not an art pass: the third-party inventory is asserted
+; unchanged at 185 + 2 = 187.
+;
+; No Riftfall Landing or Broken Watch node exists in this scene — see
+; `roguelite_core_loop_runtime.gd`'s header for why the runtime extends
+; `BrokenWatchSlice` and then deliberately does not call its `_ready()`.
+;
+; What IS reused, unmodified and by composition: the proven Prototype Zero
+; combat kernel (`PrototypePlayer`, `PrototypeGraveblade`, `QuickStrikeAction`,
+; `AttackCoordinator`, `TargetAcquisition`), the accepted 19 m / 55 deg / 45 deg
+; camera, `DestinationMarker`, `InputFamilyTracker`, and Gate 1D's own
+; `FirstMvpCombatHud` and `FirstMvpItemComparison`. None of those files is
+; edited.
+;
+; `FallenOverlay` is declared here as Gate 1D's own overlay and REPLACED at
+; runtime by `RogueliteFallenOverlay`, a subclass of it, so the two Gate 1D
+; strings that would be wrong in a roguelite never reach the screen while the
+; whole proven modal contract underneath is inherited rather than copied.
+;
+; Controls are Gate 1D's, unchanged. Review keys are PHYSICAL:
+;   F6 grid · [ ] camera distance · \ reset · F5 abandon the run
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/roguelite/roguelite_core_loop.tscn
+;
+; Enter a named run:
+;   ... roguelite_core_loop.tscn -- --seed 12345
+
+[ext_resource type="Script" path="res://scripts/roguelite/roguelite_core_loop_runtime.gd" id="1_runtime"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="2_marker"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="3_camera"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="4_input_family"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_combat_hud.gd" id="5_hud"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_item_comparison.gd" id="6_comparison"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_fallen_overlay.gd" id="7_fallen"]
+
+; Flat, even, readable greybox lighting. Deliberately NOT the accepted D-206
+; exterior treatment: this review judges layout and loop, and a lighting
+; direction that flatters or hides a shape would be answering a question
+; nobody asked it. No fog, no sky, no post effect.
+[sub_resource type="Environment" id="Environment_roguelite"]
+background_mode = 1
+background_color = Color(0.085, 0.092, 0.110, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.80, 0.83, 0.90, 1)
+ambient_light_energy = 1.05
+tonemap_mode = 0
+fog_enabled = false
+
+[node name="RogueliteCoreLoop" type="Node3D"]
+script = ExtResource("1_runtime")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_roguelite")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766, -0.523, 0.375, 0, 0.583, 0.813, -0.643, -0.623, 0.447, 0, 14, 0)
+light_energy = 1.0
+shadow_enabled = true
+
+[node name="Composition" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Composition"]
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("2_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("3_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("4_input_family")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" type="Control" parent="CanvasLayer"]
+script = ExtResource("5_hud")
+
+[node name="ItemComparison" type="Control" parent="CanvasLayer"]
+script = ExtResource("6_comparison")
+
+[node name="FallenOverlay" type="Control" parent="CanvasLayer"]
+script = ExtResource("7_fallen")

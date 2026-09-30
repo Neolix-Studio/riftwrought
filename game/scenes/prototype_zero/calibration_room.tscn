@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3]
+
+; Prototype Zero — Gate B calibration room.
+;
+; Geometry is assembled by the script from MEASURED kit dimensions, so the
+; visible room, its collision, and the baked navigation mesh cannot drift apart.
+; Every value is a provisional calibration result, not final first-MVP scale.
+
+[ext_resource type="Script" path="res://scripts/prototype_zero/calibration_room.gd" id="1_room"]
+
+[node name="CalibrationRoom" type="Node3D"]
+script = ExtResource("1_room")
+tiles_x = 5
+tiles_z = 4
+barrier_enabled = false
+barrier_position = Vector3(-4.5, 0, -3.5)
+grid_visible = false

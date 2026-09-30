@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="PrototypeWeaponData" load_steps=2 format=3]
+
+; Riftwrought — Gate 1D: the player's canonical starting weapon (D-217).
+;
+; Reuses `PrototypeWeaponData` — the validated Resource SHAPE Gate E proved,
+; and the exact type `PrototypePlayer.weapon` is declared as, so the proven
+; `PrototypePlayer`/`QuickStrikeAction` combat kernel is reused completely
+; unmodified. This is a NEW record under a NEW, Gate-1D-owned path — it does
+; not reuse or rename Prototype Zero's `starter_sword.tres`.
+;
+; An ordinary, unremarkable blade. Its whole purpose is to be obviously
+; outclassed by the guaranteed drop from the first Graveblade, so the
+; improvement reads without a spreadsheet. 100 raw Physical reuses the exact
+; number Prototype Zero already validated for this role — a calibration
+; reference, not a rule this file is bound to keep.
+
+[ext_resource type="Script" path="res://scripts/combat/prototype_weapon_data.gd" id="1_weapon"]
+
+[resource]
+script = ExtResource("1_weapon")
+display_name = "Worn Sword"
+weapon_id = &"worn_sword"
+damage_type = "Physical"
+physical_damage = 100.0
+increased_attack_speed = 0.0

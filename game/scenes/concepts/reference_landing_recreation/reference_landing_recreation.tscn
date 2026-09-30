@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3]
+
+; Reference Landing Recreation -- Session 1 (NON-CANONICAL). Blueprint and
+; markers only: a bare Node3D root plus three plain Marker3D anchors, matching
+; the positions authored in
+; scripts/concepts/reference_landing_recreation/blueprint.gd. No meshes, no
+; script, no Zone Composer dependency -- plain and addon-free, exactly like
+; Riftfall Landing itself. See
+; docs/concepts/reference_landing_recreation/01_blueprint_and_markers.md.
+;
+; Session 8 (NON-CANONICAL) attached reference_landing_recreation.gd below,
+; which builds Sessions 2-7's ground, boundary, architecture, props, lighting
+; and VFX layers onto this same root at _ready(). Session 1's three markers
+; above are untouched. See
+; docs/concepts/reference_landing_recreation/08_integration_and_playtest_report.md.
+
+[ext_resource type="Script" path="res://scripts/concepts/reference_landing_recreation/reference_landing_recreation.gd" id="1_integration"]
+
+[node name="ReferenceLandingRecreation" type="Node3D"]
+script = ExtResource("1_integration")
+
+[node name="Spawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Midpoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -70)
+
+[node name="Portal" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0.9, -128)

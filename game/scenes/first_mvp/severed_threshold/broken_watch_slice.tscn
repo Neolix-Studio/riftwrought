@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3]
+
+; Riftwrought — Gate 1D: Broken Watch Combat & Loot Slice (D-217).
+;
+; THE FIRST DIRECTLY RUNNABLE CANONICAL-OPENING PLAYTEST SCENE. Instances
+; Riftfall Landing's ACCEPTED Greybox V2 layout and Visual Review dressing
+; UNMODIFIED (RiftfallLandingGreyboxLayout, RiftfallLandingVisualReviewDressing,
+; ExteriorReviewLighting, ExteriorReviewTreatment — the same shared components
+; riftfall_landing_visual_review.tscn uses), places the new BrokenWatchLayout
+; as a sibling under the SAME NavigationRegion3D so the whole slice bakes as
+; one continuous navigation mesh, and wires the proven Prototype Zero combat
+; kernel (PrototypePlayer, PrototypeGraveblade x2, QuickStrikeAction,
+; AttackCoordinator, TargetAcquisition) by composition — none of those files
+; are edited. See broken_watch_slice.gd for the full contract.
+;
+; No InputMap action is added. Review keys are physical:
+;   F6 grid · [ ] camera distance · \ reset
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/severed_threshold/broken_watch_slice.tscn
+
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd" id="1_slice"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual/exterior_review_lighting.gd" id="2_lighting"]
+[ext_resource type="Script" path="res://scripts/first_mvp/greybox/riftfall_landing_greybox_layout.gd" id="3_landing"]
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/broken_watch_layout.gd" id="4_broken_watch"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual_review/riftfall_landing_visual_review_dressing.gd" id="5_dressing"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="6_marker"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="7_camera"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="8_input_family"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_combat_hud.gd" id="9_hud"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_item_comparison.gd" id="10_comparison"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_fallen_overlay.gd" id="11_fallen"]
+
+[node name="BrokenWatchSlice" type="Node3D"]
+script = ExtResource("1_slice")
+
+; Built in code by ExteriorReviewLighting, reused unchanged — one
+; implementation of the accepted exterior direction in the whole project.
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="ExteriorLighting" type="Node" parent="."]
+script = ExtResource("2_lighting")
+
+[node name="Composition" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Composition"]
+
+[node name="Landing" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("3_landing")
+
+[node name="BrokenWatch" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("4_broken_watch")
+
+[node name="LandingDressing" type="Node3D" parent="Composition"]
+script = ExtResource("5_dressing")
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("6_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("7_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("8_input_family")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" type="Control" parent="CanvasLayer"]
+script = ExtResource("9_hud")
+
+[node name="ItemComparison" type="Control" parent="CanvasLayer"]
+script = ExtResource("10_comparison")
+
+[node name="FallenOverlay" type="Control" parent="CanvasLayer"]
+script = ExtResource("11_fallen")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3]
+
+; Riftwrought — Gate 1E: the DEVELOPER-ONLY Foundation Skill practice range
+; (D-219, brief §17).
+;
+; Not canonical content. Nothing in the game loads it. It exists so the three
+; Foundation Skills can be validated mechanically without putting a combat
+; dummy in the safe Rift Nexus — which the brief explicitly forbids.
+;
+;   1 / 2 / 3  select Faultbreaker · Splinter Shot · Emberbolt
+;   4 / 5 / 6  equip Garrison Greatsword · Marrow Bow · Cantor Wand
+;   E / (A)    use the selected Skill        Right mouse  Quick Strike
+;   Left mouse move                          R            restore
+;
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/canonical_opening/foundation_skill_practice.tscn
+
+[ext_resource type="Script" path="res://scripts/first_mvp/canonical_opening/foundation_skill_practice.gd" id="1_practice"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="2_camera"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="3_input_family"]
+
+[node name="FoundationSkillPractice" type="Node3D"]
+script = ExtResource("1_practice")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+rotation_edit_mode = 0
+transform = Transform3D(0.86, -0.28, 0.42, 0, 0.83, 0.55, -0.5, -0.48, 0.72, 0, 12, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("2_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("3_input_family")

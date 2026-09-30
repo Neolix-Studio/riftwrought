@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3]
+
+; Prototype Zero — Gate E: the one guaranteed ground drop (specification §7.5).
+;
+; The visible sword is the REGISTERED Gate A `sword_1handed.gltf`, the same model
+; the player already carries. No asset was added for Gate E. The copper ground
+; ring and the soft shaft are primitives built in the script, so they need no
+; Asset Register entry either.
+;
+; It is on NO physics layer: Quick Strike can never target it, it can never block
+; movement, and it never enters the navigation bake. Its CollisionShape3D exists
+; only so the §7.5 "interaction range" is authored geometry the checks can read.
+;
+; This is NOT an inventory item entity. There is no stack, slot, rarity frame,
+; affix list, or serialization anywhere in it.
+
+[ext_resource type="Script" path="res://scripts/items/prototype_sword_drop.gd" id="1_drop"]
+[ext_resource type="Resource" path="res://data/prototype_zero/honed_sword.tres" id="2_honed"]
+
+[node name="PrototypeSwordDrop" type="Area3D"]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("1_drop")
+weapon = ExtResource("2_honed")
+interaction_range = 2.2

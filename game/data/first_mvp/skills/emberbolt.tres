@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="FirstMvpSkillData" load_steps=2 format=3]
+
+; Riftwrought — Gate 1E: Emberbolt, the spell Foundation Skill (D-219).
+;
+; Canonical foundation (design/SKILLS_AND_SKILL_MODIFICATION.md):
+;   "Fire Projectile Spell" — Spell, Projectile, Hit, Fire.
+;   "Emberbolt is a direct Fire Projectile Spell using the shared one-handed
+;    cast family."
+;   "Emberbolt provides an understandable conventional Spell against which Void
+;    behavior remains visibly unusual."
+;
+; THE ONE THING THAT MAKES IT A SPELL RATHER THAN AN ATTACK: its damage is
+; SKILL-DEFINED, not weapon-derived. damage_source = SPELL and spell_damage =
+; 130.0, so the Cantor Wand's own Physical weapon damage is irrelevant to what
+; Emberbolt deals. That is the readable contrast the canon asks for, and it is
+; a property of this record rather than a branch in the code.
+;
+; 130 Fire against the reused 300-Life Graveblade is ceil(300 / 130) = 3 Hits,
+; deliberately one more than the Watchsteel Sword's two: a Spell that ignored
+; the weapon should not also out-damage it at the same Level.
+;
+; FIRE WITHOUT IGNITE. The brief: "Do NOT implement Ignite, Chain, Return,
+; impact-area Augments, transformations, or additional projectiles yet."
+; Emberbolt therefore deals Fire damage and nothing else — no ailment, no
+; burning ground, no secondary. The first MVP has no Fire Resistance either, so
+; final = raw exactly as every other Hit in the project.
+;
+; Range 10.50 m, inside the 13.532 m the accepted camera shows ahead of the
+; body; 22.0 m/s gives a 0.48 s flight, slightly slower and heavier-reading
+; than Splinter Shot's arrow.
+
+[ext_resource type="Script" path="res://scripts/skills/first_mvp_skill_data.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+skill_id = &"emberbolt"
+display_name = "Emberbolt"
+tags = [&"Spell", &"Projectile", &"Hit", &"Fire"]
+identity = "A direct bolt of Fire. Its damage comes from the Skill rather than from the weapon in your hand — the first thing you cast rather than swing."
+archetype = 2
+damage_source = 1
+animation_family = 3
+damage_type = "Fire"
+action_time = 1.05
+release_marker_normalized = 0.46
+release_window = 0.06
+input_buffer = 0.12
+weapon_damage_scale = 1.0
+spell_damage = 130.0
+reach = 0.0
+release_arc_degrees = 0.0
+area_radius = 0.0
+maximum_targets = 1
+approach_stop_margin = 0.1
+projectile_speed = 22.0
+projectile_range = 10.5
+projectile_radius = 0.24
+projectile_count = 1
+mana_cost = 14.0
+required_weapon_families = [&"wand", &"staff"]
+requirement_text = "Requires a wand or staff"
+soft_target_distance = 10.5
+soft_target_cone_degrees = 45.0
+soft_target_angle_tie_degrees = 12.0
+soft_target_retention = 0.35

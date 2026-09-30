@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3]
+
+; Prototype Zero — Gate A asset and rig spike.
+;
+; This scene exists only to prove the registered KayKit import: coherent
+; Knight / Graveblade scale against the dungeon kit, the medium-rig clips, and
+; the handslot.r weapon attachments. It is NOT the calibration room, it has no
+; navigation, collision, input, combat, or progression, and Gate B replaces it.
+
+[ext_resource type="Script" path="res://scripts/prototype_zero/gate_a_asset_spike.gd" id="1_spike"]
+[ext_resource type="PackedScene" path="res://scenes/actors/knight_rig.tscn" id="2_knight"]
+[ext_resource type="PackedScene" path="res://scenes/actors/graveblade_rig.tscn" id="3_graveblade"]
+[ext_resource type="PackedScene" path="res://assets/third_party/kaykit/dungeon/floor_tile_large.gltf" id="4_floor"]
+[ext_resource type="PackedScene" path="res://assets/third_party/kaykit/dungeon/wall.gltf" id="5_wall"]
+[ext_resource type="PackedScene" path="res://assets/third_party/kaykit/dungeon/wall_pillar.gltf" id="6_pillar"]
+
+[sub_resource type="ProceduralSkyMaterial" id="Sky_1"]
+sky_top_color = Color(0.121569, 0.133333, 0.164706, 1)
+sky_horizon_color = Color(0.192157, 0.184314, 0.196078, 1)
+ground_bottom_color = Color(0.0784314, 0.0823529, 0.0980392, 1)
+ground_horizon_color = Color(0.192157, 0.184314, 0.196078, 1)
+
+[sub_resource type="Sky" id="Sky_2"]
+sky_material = SubResource("Sky_1")
+
+[sub_resource type="Environment" id="Env_1"]
+background_mode = 2
+sky = SubResource("Sky_2")
+ambient_light_source = 3
+ambient_light_color = Color(0.615686, 0.647059, 0.72549, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 3
+
+[node name="GateAAssetSpike" type="Node3D"]
+script = ExtResource("1_spike")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env_1")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819152, -0.439385, 0.368688, 0, 0.642788, 0.766044, -0.573576, -0.627507, 0.526541, 0, 8, 0)
+light_energy = 1.1
+shadow_enabled = true
+
+[node name="ScaleReferenceKit" type="Node3D" parent="."]
+
+[node name="FloorTile_n4_n4" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.05, -4)
+
+[node name="FloorTile_n4_0" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.05, 0)
+
+[node name="FloorTile_n4_4" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.05, 4)
+
+[node name="FloorTile_0_n4" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -4)
+
+[node name="FloorTile_0_0" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="FloorTile_0_4" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 4)
+
+[node name="FloorTile_4_n4" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.05, -4)
+
+[node name="FloorTile_4_0" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.05, 0)
+
+[node name="FloorTile_4_4" parent="ScaleReferenceKit" instance=ExtResource("4_floor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.05, 4)
+
+[node name="WallBack_L" parent="ScaleReferenceKit" instance=ExtResource("5_wall")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
+
+[node name="WallBack_C" parent="ScaleReferenceKit" instance=ExtResource("6_pillar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="WallBack_R" parent="ScaleReferenceKit" instance=ExtResource("5_wall")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+
+[node name="WallLeft_n4" parent="ScaleReferenceKit" instance=ExtResource("5_wall")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6, 0, -4)
+
+[node name="WallLeft_0" parent="ScaleReferenceKit" instance=ExtResource("5_wall")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6, 0, 0)
+
+[node name="WallLeft_4" parent="ScaleReferenceKit" instance=ExtResource("5_wall")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -6, 0, 4)
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="KnightRig" parent="Actors" instance=ExtResource("2_knight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0, 0)
+
+[node name="GravebladeRig" parent="Actors" instance=ExtResource("3_graveblade")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1.6, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.454519, 0.541675, 0, 0.766044, 0.642788, -0.707107, -0.454519, 0.541675, 11.9169, 15.1413, 11.9169)
+projection = 1
+size = 11.0
+near = 0.1
+far = 200.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ClipLabel" type="Label" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 900.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 22
+text = "Gate A asset spike"

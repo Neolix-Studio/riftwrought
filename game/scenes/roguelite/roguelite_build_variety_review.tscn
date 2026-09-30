@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3]
+
+; Riftwrought — the ISOLATED ROGUELITE BUILD VARIETY V1 REVIEW (decision D-223).
+;
+; Nexus -> Rift Gate -> a SEEDED route of three authored rooms -> TWO seeded
+; temporary-upgrade choices, one after the opening room and one after the reward
+; room -> elite -> Nexus. Built to be PLAYED and judged: do temporary upgrade
+; COMBINATIONS create meaningfully different play styles?
+;
+; IT IS NOT THE PROJECT ENTRYPOINT AND MUST NEVER BECOME ONE. `run/main_scene`
+; is still `res://scenes/app/prototype_app.tscn`, and this scene is launched
+; explicitly. It loads no other scene, writes nothing to disk, adds no InputMap
+; action, and touches no accepted value.
+;
+; IT REPLACES NEITHER ACCEPTED REVIEW. `scenes/roguelite/roguelite_core_loop.tscn`
+; (D-220/D-221) and `scenes/roguelite/roguelite_replayability_review.tscn`
+; (D-222) are both preserved byte-identical, both still run, and both remain
+; working baselines; their own runners still guard them and this review's runner
+; runs both of their verifications once.
+;
+; IT ADDS NO ROOM AND NO ENEMY. The nine authored greybox rooms, the fifteen
+; enemies, the three beats, the seeded route selection, the walk-in gates, the
+; reward placement, the Nexus, the death path and every control are D-222's and
+; D-220's, inherited and unedited. What this review adds is the temporary
+; UPGRADE POOL, the second choice moment, and a brief on-ground outline of the
+; swing that actually happened so the two spatial upgrades can be judged by eye.
+;
+; DELIBERATELY GREYBOXED, AND THE CLAIM IS SCOPED HONESTLY. Every surface, mass,
+; gate, marker and outline THIS REVIEW draws is primitive Godot geometry in a
+; flat material, built in code: no environment asset, texture, shader file,
+; particle system or new third-party payload, and the review's own scripts name
+; none. What it does NOT claim is that no registered asset is on screen — the
+; reused, unmodified kernels bring their own already-registered models with them
+; (the KayKit player and Graveblade rigs from Gate A, and the registered sword
+; model Gate 1D's `FirstMvpItemDrop` shows for a ground item). That is reuse of
+; an accepted, already-inventoried asset through an unedited class, not a new
+; asset and not an art pass: the third-party inventory is asserted unchanged at
+; 185 + 2 = 187.
+;
+; No Riftfall Landing or Broken Watch node exists in this scene — see
+; `roguelite_build_variety_runtime.gd`'s header for why the runtime extends
+; `RogueliteReplayabilityRuntime` (which extends `RogueliteCoreLoopRuntime`,
+; which extends `BrokenWatchSlice` for its TYPE) and then deliberately does not
+; call its `_ready()`.
+;
+; `FallenOverlay` is declared here as Gate 1D's own overlay and REPLACED at
+; runtime by the accepted `RogueliteFallenOverlay`, exactly as both accepted
+; reviews do, so the whole proven modal contract is inherited rather than copied.
+;
+; Controls are Gate 1D's, unchanged. Review keys are PHYSICAL:
+;   F6 grid · F7 next seeded route (Nexus only) · F8 swing outline
+;   [ ] camera distance · \ reset · F5 abandon the run
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/roguelite/roguelite_build_variety_review.tscn
+;
+; Enter a named run:
+;   ... roguelite_build_variety_review.tscn -- --seed 12345
+
+[ext_resource type="Script" path="res://scripts/roguelite/build_variety/roguelite_build_variety_runtime.gd" id="1_runtime"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="2_marker"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="3_camera"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="4_input_family"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_combat_hud.gd" id="5_hud"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_item_comparison.gd" id="6_comparison"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_fallen_overlay.gd" id="7_fallen"]
+
+; Flat, even, readable greybox lighting — byte-for-byte the accepted core loop's
+; and the accepted D-222 review's environment. This review judges upgrade
+; combinations and how they change play; a lighting direction that flattered or
+; hid a shape would be answering a question nobody asked it. No fog, no sky, no
+; post effect.
+[sub_resource type="Environment" id="Environment_build_variety"]
+background_mode = 1
+background_color = Color(0.085, 0.092, 0.110, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.80, 0.83, 0.90, 1)
+ambient_light_energy = 1.05
+tonemap_mode = 0
+fog_enabled = false
+
+[node name="RogueliteBuildVarietyReview" type="Node3D"]
+script = ExtResource("1_runtime")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_build_variety")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766, -0.523, 0.375, 0, 0.583, 0.813, -0.643, -0.623, 0.447, 0, 14, 0)
+light_energy = 1.0
+shadow_enabled = true
+
+[node name="Composition" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Composition"]
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("2_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("3_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("4_input_family")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" type="Control" parent="CanvasLayer"]
+script = ExtResource("5_hud")
+
+[node name="ItemComparison" type="Control" parent="CanvasLayer"]
+script = ExtResource("6_comparison")
+
+[node name="FallenOverlay" type="Control" parent="CanvasLayer"]
+script = ExtResource("7_fallen")

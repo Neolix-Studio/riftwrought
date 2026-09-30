@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3]
+
+; Riftwrought — CANONICAL Riftfall Landing (first-MVP Gate 1C, D-208).
+;
+; The safe exterior opening of The Severed Threshold, and the first canonical
+; place the player will control the Riftmarked. It is NOT a review instrument: the
+; developer wrapper at riftfall_landing_review.tscn instances this scene and adds
+; the temporary body, camera, marker and overlay around it.
+;
+; It contains environment, the accepted D-206 exterior lighting and material
+; treatment, project-authored terrain, route geometry, boundary banks, collision
+; and navigation carves, the registered KayKit Dungeon / Forest Nature / Halloween
+; and Kenney Graveyard dressing, a navigation mesh baked ONCE from that authored
+; collision, the five §8 sockets, and the repeating-stone anomaly.
+;
+; It contains NO player, NO camera, NO overlay, NO developer control, and NO
+; gameplay of any kind: no enemy, combat, attack input, target acquisition, Life,
+; Mana, damage, death, loot, item, XP, Passive, reward, inventory, equipment,
+; progression, quest, dialogue, Mara, Nexus, save, checkpoint, portal, transition,
+; procedural generation, HUD or audio. It writes nothing and has no storage path.
+;
+; It does NOT replace the project entrypoint, which is still
+; res://scenes/app/prototype_app.tscn.
+;
+; `Composition` carries a 45 degree yaw so the layout's own -Z axis runs straight
+; away from the fixed-yaw accepted camera. The camera itself is unchanged.
+;
+; Run the reviewable version:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/severed_threshold/riftfall_landing_review.tscn
+
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/riftfall_landing.gd" id="1_landing"]
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/riftfall_landing_layout.gd" id="2_layout"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual/exterior_review_lighting.gd" id="3_lighting"]
+
+[node name="RiftfallLanding" type="Node3D"]
+script = ExtResource("1_landing")
+
+; The environment and the key light are built in code by the first Gate 1B
+; spike's lighting component, REUSED UNCHANGED, so the accepted exterior direction
+; has exactly one implementation in the project.
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="ExteriorLighting" type="Node" parent="."]
+script = ExtResource("3_lighting")
+
+; The 45 degree composition yaw is applied by riftfall_landing.gd rather than
+; serialized here, so its meaning cannot be misread from a basis literal. The
+; verification measures the resulting axis against the camera's forward direction.
+[node name="Composition" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Composition"]
+
+[node name="Layout" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("2_layout")

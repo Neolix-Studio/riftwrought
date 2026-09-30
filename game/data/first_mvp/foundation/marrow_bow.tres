@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="FirstMvpWeaponRecord" load_steps=2 format=3]
+
+; Riftwrought — Gate 1E: the projectile Foundation Cache weapon (D-219).
+;
+; Canonical entry, design/FIRST_MVP_CONTENT_AND_REWARD_CATALOGUE.md section 4.1:
+;   | Marrow Bow | Bow | fluid ranged Attack | increased Projectile Speed |
+;
+; Pairs with Splinter Shot.
+;
+; One-handed by slot model in the first MVP: the canonical ten equipment slots
+; give a bow the Main Hand, and no off-hand item exists yet to conflict with it.
+; It is NOT declared two-handed, because doing so would state a rule the item
+; canon does not — only the Two-Handed Sword and Two-Handed Axe families carry
+; that in section 4.1's table.
+;
+; 110 raw Physical with Splinter Shot's 1.00x scale is 110 per shot at range,
+; against the Watchsteel Sword's 150 in contact. Distance is paid for with
+; damage, which is the honest first relationship between a melee and a ranged
+; foundation and is provisional balance data like every number in this gate.
+;
+; The implicit is DESCRIBED and NOT IMPLEMENTED — see the greatsword's note.
+
+[ext_resource type="Script" path="res://scripts/items/first_mvp_weapon_record.gd" id="1_record"]
+
+[resource]
+script = ExtResource("1_record")
+display_name = "Marrow Bow"
+weapon_id = &"marrow_bow"
+damage_type = "Physical"
+physical_damage = 110.0
+increased_attack_speed = 0.0
+base_type = "Bow"
+weapon_family = &"bow"
+hands = 0
+item_id = &"marrow_bow"
+item_level = 1
+required_level = 1
+implicit_text = "Increased Projectile Speed (described; the affix system is not implemented yet)"
+identity_line = "Fluid ranged Attack. Light in the hand, and it answers before the thing you are aiming at does."

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PrototypeWeaponData" load_steps=2 format=3]
+
+; Riftwrought — Gate 1D: the one guaranteed weapon improvement (D-217).
+;
+; Reuses `PrototypeWeaponData` for the same reason `starting_sword.tres` does
+; — it is the exact type `PrototypePlayer.weapon` is declared as. A NEW
+; record under a NEW path; NOT a reuse or rename of Prototype Zero's
+; `honed_sword.tres` or its "Honed Sword" name.
+;
+; Dropped by the first Graveblade in Broken Watch. 150 raw Physical against
+; the reused 300-Life Graveblade is the same controlled three-Hit-to-two-Hit
+; relationship Prototype Zero proved:
+;
+;   ceil(300 / 100) = 3 Hits (Worn Sword)
+;   ceil(300 / 150) = 2 Hits (Watchsteel Sword)
+;
+; This is authored onboarding equipment, not the loot system: no rarity, no
+; affix, no roll. The name is provisional placeholder naming pending the
+; project owner's own naming pass.
+
+[ext_resource type="Script" path="res://scripts/combat/prototype_weapon_data.gd" id="1_weapon"]
+
+[resource]
+script = ExtResource("1_weapon")
+display_name = "Watchsteel Sword"
+weapon_id = &"watchsteel_sword"
+damage_type = "Physical"
+physical_damage = 150.0
+increased_attack_speed = 0.0

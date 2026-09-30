@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="GravebladeData" load_steps=2 format=3]
+
+; Prototype Zero — Graveblade tuning record.
+;
+; Locked by decision D-181 and specification §14.1. These are controlled FIRST
+; CALIBRATION values for the contained laboratory, not the final first-MVP
+; enemy balance model.
+;
+; The action time and the release marker are derived, never stored twice:
+;   action time    = 0.55 + 0.08 + 0.62 = 1.25 s
+;   release marker = 0.55 / 1.25        = 0.44
+;
+; `release_marker_normalized()` is also the normalised position of the visible
+; contact pose inside the retimed clip `Graveblade_Attack`, which is what makes
+; the marker, the damage query, and the visible impact agree.
+;
+; `attack_arc_degrees` is a TOTAL arc, centred on the COMMITTED direction rather
+; than on the current facing — 90.0 means +/- 45 degrees around where the
+; Graveblade decided to strike. That is what lets repositioning after the commit
+; produce a genuine miss.
+;
+; The starter relationship this record exists to prove:
+;   ceil(300 Life / 100 Quick Strike damage) = 3 Hits to kill the Graveblade
+;   ceil(500 Life / 125 Graveblade damage)   = 4 Hits to defeat the player
+;
+; `experience_reward` is INERT. Gate D awards no XP; Gate E owns the XP bar.
+
+[ext_resource type="Script" path="res://scripts/combat/graveblade_data.gd" id="1_graveblade"]
+
+[resource]
+script = ExtResource("1_graveblade")
+display_name = "Graveblade"
+damage_type = "Physical"
+; Gate F, specification §20.1: the action named in the Fallen killing source.
+; Presentation only — no mechanical value changed when it was added.
+attack_display_name = "Melee Hit"
+max_life = 300.0
+physical_damage = 125.0
+move_speed = 3.4
+awareness_distance = 10.0
+preferred_attack_distance = 1.4
+attack_reach = 1.65
+; TOTAL arc, so 90.0 means +/- 45 degrees around the committed direction.
+attack_arc_degrees = 90.0
+anticipation = 0.55
+release_window = 0.08
+recovery = 0.62
+minimum_commitment_interval = 0.35
+commit_at_anticipation_fraction = 0.6
+spawn_settle = 0.3
+; Inert in Gate D — carried for later canon compatibility only.
+experience_reward = 10

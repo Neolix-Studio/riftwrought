@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3]
+
+; Prototype Zero — Gate E lab-progression surface.
+;
+; The minimum presentation D-184 allows: an XP bar, the quiet weapon line, the
+; stage and wave state, the ground drop's clickable nameplate, and compact
+; transient messages. It is NOT the specification §17 HUD and NOT Gate F: no
+; Wroughtglass reservoir, no Rift Shard, no Skill bank, no minimap, no damage
+; numbers, and no damage-number setting.
+;
+; PROCESS_MODE_ALWAYS so the card stays legible while a modal pauses the world.
+
+[ext_resource type="Script" path="res://scripts/ui/gate_e_lab_overlay.gd" id="1_overlay"]
+
+[node name="LabOverlay" type="Control"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_overlay")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3]
+
+; Riftwrought — First-MVP Gate 1A calibration-hall player.
+;
+; LOCOMOTION AND THE TEMPORARY VISUAL SILHOUETTE ONLY. There is no Quick Strike
+; action node, no weapon record, no Life, no Mana, no target area, and no
+; damage eligibility: specification §3 forbids all of them here, and the Gate 1A
+; suite asserts each absence by name.
+;
+; The Knight body is the existing temporary test adventurer. It is NOT the
+; Riftmarked and selects no class.
+;
+; Capsule: 0.80 m diameter (P) x 1.80 m tall — D-175's accepted Prototype Zero
+; values, reused unchanged so the hall measures the SPACE rather than a second
+; character.
+;
+; collision_layer 2 is "player"; collision_mask 1 is "world" alone. Prototype
+; Zero's player also masks the "enemy" layer; this hall has no enemies and no
+; enemy layer to mask, and every calibration fixture is deliberately built with
+; no collision at all.
+
+[ext_resource type="Script" path="res://scripts/first_mvp/calibration/calibration_hall_player.gd" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/actors/knight_rig.tscn" id="2_knight"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_1"]
+radius = 0.4
+height = 1.8
+
+[node name="CalibrationHallPlayer" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 1
+floor_snap_length = 0.2
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_1")
+
+[node name="VisualRoot" type="Node3D" parent="."]
+
+[node name="KnightRig" parent="VisualRoot" instance=ExtResource("2_knight")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.4
+target_desired_distance = 0.2
+radius = 0.4
+avoidance_enabled = false
+debug_enabled = false

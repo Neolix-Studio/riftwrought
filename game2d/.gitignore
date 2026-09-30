@@ -1,0 +1,11 @@
+# Godot 4 generated data — never committed, and never authoritative evidence.
+.godot/
+/android/
+*.translation
+
+# macOS
+.DS_Store
+
+# Export artefacts
+/builds/
+export_presets.cfg

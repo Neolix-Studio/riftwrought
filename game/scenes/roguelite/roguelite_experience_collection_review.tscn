@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3]
+
+; Riftwrought — the ROGUELITE EXPERIENCE COLLECTION GREYBOX REVIEW V1 (decision D-288).
+;
+; One question, asked in play: kill a real Graveblade -> a visible Experience Mote
+; appears -> entering pickup range collects it -> Rift XP rises -> four 25-XP motes
+; reach the 100-XP Level 1 requirement -> "LEVEL-UP READY" appears, and nothing
+; advances on its own. It stops immediately before the three-card offer.
+;
+; IT IS NOT THE PROJECT ENTRYPOINT AND MUST NEVER BECOME ONE. `run/main_scene` is
+; still the Prototype App. Launch this scene with Run Current Scene, never Run
+; Project, or:
+;   godot --path game res://scenes/roguelite/roguelite_experience_collection_review.tscn -- --seed 99
+;
+; IT INHERITS THE ACCEPTED CORE-LOOP SCENE AND ADDS NO NODE OF ITS OWN. The one
+; line below this header that differs from the accepted scene is the root's
+; script, which EXTENDS the accepted runtime and does not override its assembly:
+; every module, the navigation bake, the player, the five Graveblades, both HUDs,
+; the modals, the lighting and the camera come from the accepted scene and code,
+; neither copied nor edited. The mote markers and the review panel are made in
+; code at run time from primitive meshes and flat materials.
+;
+; Controls are the accepted core loop's, unchanged. Review keys are PHYSICAL:
+;   F8 automatic mote pickup ON/OFF · F6 grid · [ ] camera distance · \ reset
+;   F5 abandon the run
+
+[ext_resource type="PackedScene" path="res://scenes/roguelite/roguelite_core_loop.tscn" id="1_core_loop"]
+[ext_resource type="Script" path="res://scripts/roguelite/experience/roguelite_experience_collection_review.gd" id="2_review"]
+
+[node name="RogueliteExperienceCollectionReview" instance=ExtResource("1_core_loop")]
+script = ExtResource("2_review")

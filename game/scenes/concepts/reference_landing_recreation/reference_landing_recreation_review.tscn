@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+; Reference Landing Recreation -- Session 8 integration review (NON-CANONICAL).
+; Evidence scaffolding only, not the shipped environment scene -- that is
+; reference_landing_recreation.tscn, which this wrapper instances as a child.
+; Everything else (camera rig, measurement, screenshots) is built in code by
+; integration_review.gd; this wrapper is deliberately a bare Node3D plus that
+; one script, exactly like Session 6/7's own preview wrappers. See
+; docs/concepts/reference_landing_recreation/08_integration_and_playtest_report.md.
+
+[ext_resource type="Script" path="res://scripts/concepts/reference_landing_recreation/integration_review.gd" id="1_review"]
+
+[node name="ReferenceLandingRecreationReview" type="Node3D"]
+script = ExtResource("1_review")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3]
+
+; Prototype Zero — Gate C inert target fixture.
+;
+; A practice post. NOT a Graveblade: no AI, no attack, no Life, no death, no XP,
+; no loot. It exists only so Gate C can prove acquisition, approach, the release
+; arc, obstruction, and controller priority before Gate D builds an enemy.
+;
+; It sits on the "target" physics layer alone, so it neither collides with the
+; player nor appears in the navigation bake, and therefore cannot change any
+; Gate B locomotion result.
+
+[ext_resource type="Script" path="res://scripts/actors/prototype_target_fixture.gd" id="1_fixture"]
+
+[node name="PrototypeTargetFixture" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+monitorable = true
+script = ExtResource("1_fixture")

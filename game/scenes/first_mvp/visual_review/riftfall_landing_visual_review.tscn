@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3]
+
+; Riftwrought — Riftfall Landing ISOLATED VISUAL REVIEW. NOT CANONICAL.
+;
+; A candidate dark-fantasy art pass over the project owner's accepted Greybox
+; V2 layout (RiftfallLandingGreyboxLayout, instanced here UNCHANGED). It does
+; not touch, instance, or read the canonical
+; scenes/first_mvp/severed_threshold/riftfall_landing.tscn, which remains the
+; shipped content until and unless the project owner accepts this candidate.
+; It does not touch the Zone Composer or the owner's own composed practice
+; zone either.
+;
+; Route, dimensions, clearances, camera, collision and navigation are exactly
+; V2's — same CENTRELINE, same Rect2 constants, same colliders and carves,
+; same one navigation bake, same accepted 19 m / 55 deg / 45 deg camera and
+; 5.0 m/s locomotion kernel (CalibrationHallPlayer, PrototypeCameraRig,
+; DestinationMarker, PrototypeGroundPointer, PrototypeMouseHold — all reused
+; unchanged). `RiftfallLandingVisualReviewDressing` (under Composition,
+; alongside NavigationRegion3D) only recolours the surfaces V2's own layout
+; already built and adds new, non-colliding decoration on top.
+;
+; Lighting and material treatment reuse ExteriorReviewLighting and
+; ExteriorReviewTreatment UNCHANGED — the same shared components the canonical
+; Gate 1C scene and the closed Gate 1B scenes use — put into the accepted
+; D-206 candidate exterior state.
+;
+; No InputMap action is added. Every review key is a PHYSICAL key:
+;   F6 grid + diagnostics · [ ] camera distance · \ reset
+; It writes nothing.
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/visual_review/riftfall_landing_visual_review.tscn
+
+[ext_resource type="Script" path="res://scripts/first_mvp/visual_review/riftfall_landing_visual_review.gd" id="1_review"]
+[ext_resource type="Script" path="res://scripts/first_mvp/greybox/riftfall_landing_greybox_layout.gd" id="2_layout"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual/exterior_review_lighting.gd" id="3_lighting"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual_review/riftfall_landing_visual_review_dressing.gd" id="4_dressing"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="5_camera"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="6_marker"]
+
+[node name="RiftfallLandingVisualReview" type="Node3D"]
+script = ExtResource("1_review")
+
+; Built in code by ExteriorReviewLighting, reused unchanged, exactly as the
+; canonical Gate 1C scene does — one implementation of the accepted exterior
+; direction in the whole project.
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="ExteriorLighting" type="Node" parent="."]
+script = ExtResource("3_lighting")
+
+[node name="Composition" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Composition"]
+
+[node name="Layout" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("2_layout")
+
+[node name="Dressing" type="Node3D" parent="Composition"]
+script = ExtResource("4_dressing")
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("6_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("5_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0

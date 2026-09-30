@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3]
+
+; Riftwrought — Riftfall Landing ISOLATED GREYBOX REVIEW SCENE. NOT CANONICAL.
+;
+; Level-design blockout only, for the project owner to judge scale and flow
+; before any asset, lighting or VFX work begins. Built exclusively from
+; primitive Godot geometry (BoxMesh/TorusMesh/PlaneMesh/ImmediateMesh) in flat
+; diagnostic colours — no environment asset, texture, shader, particle, or
+; registered third-party payload of any kind.
+;
+; It does not touch, instance, or read the canonical
+; scenes/first_mvp/severed_threshold/riftfall_landing.tscn, nor the Zone
+; Composer or scenes/first_mvp/zone_composer_practice.tscn. What it reuses,
+; unchanged, is the shared kernel every first-MVP review instrument reuses:
+; CalibrationHallPlayer, PrototypeCameraRig (19 m / 55 deg / 45 deg accepted
+; camera), and DestinationMarker.
+;
+; No InputMap action is added. Every review key is a PHYSICAL key:
+;   F6 1 m grid · [ ] camera distance · \ reset
+; It writes nothing; reaching Way Out is a developer measurement only.
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/greybox/riftfall_landing_greybox_review.tscn
+
+[ext_resource type="Script" path="res://scripts/first_mvp/greybox/riftfall_landing_greybox_review.gd" id="1_review"]
+[ext_resource type="Script" path="res://scripts/first_mvp/greybox/riftfall_landing_greybox_layout.gd" id="2_layout"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="3_camera"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="4_marker"]
+
+[sub_resource type="Environment" id="Environment_greybox"]
+background_mode = 1
+background_color = Color(0.11, 0.12, 0.14, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.82, 0.84, 0.88, 1)
+ambient_light_energy = 1.1
+tonemap_mode = 0
+fog_enabled = false
+
+[node name="RiftfallLandingGreyboxReview" type="Node3D"]
+script = ExtResource("1_review")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_greybox")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766, -0.523, 0.375, 0.0, 0.583, 0.813, -0.643, -0.623, 0.447, 0, 12, 0)
+light_energy = 1.05
+shadow_enabled = true
+
+[node name="Composition" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Composition"]
+
+[node name="Layout" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("2_layout")
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("4_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("3_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0

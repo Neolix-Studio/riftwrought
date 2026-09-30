@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="PrototypeWeaponData" load_steps=2 format=3]
+
+; Riftwrought — Roguelite Core Loop Review: the ONE guaranteed temporary
+; reward an expedition can produce (decision D-220).
+;
+; A NEW record under a NEW, review-owned path — NOT a reuse or rename of
+; Prototype Zero's `honed_sword.tres` or Gate 1D's `watchsteel_sword.tres`.
+;
+; IT IS RUN-SCOPED, AND THAT IS A PROPERTY OF THE RUNTIME, NOT OF THIS FILE.
+; The resource is an ordinary authored record; what makes it temporary is that
+; `RogueliteRunState` owns the fact that it was granted, and death throws that
+; whole object away and re-equips the Worn Blade. Nothing here is written to
+; disk, because the review has no storage at all.
+;
+; 150 raw Physical against the reused 300-Life Graveblade preserves the exact
+; controlled relationship Prototype Zero proved and Gate 1D reused, so the
+; project owner can still read the improvement without a spreadsheet:
+;
+;   ceil(300 / 100) = 3 Hits  (Worn Blade)
+;   ceil(300 / 150) = 2 Hits  (Expedition Blade)
+;
+; Attack speed is deliberately unchanged at 0.0, exactly as both prior pairs
+; are: the weapon improvement and any future speed improvement must stay
+; separable, or the project owner cannot judge either one.
+
+[ext_resource type="Script" path="res://scripts/combat/prototype_weapon_data.gd" id="1_weapon"]
+
+[resource]
+script = ExtResource("1_weapon")
+display_name = "Expedition Blade"
+weapon_id = &"roguelite_expedition_blade"
+damage_type = "Physical"
+physical_damage = 150.0
+increased_attack_speed = 0.0

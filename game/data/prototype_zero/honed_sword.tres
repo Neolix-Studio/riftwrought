@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="PrototypeWeaponData" load_steps=2 format=3]
+
+; Prototype Zero — the one guaranteed upgrade (specification §13, D-184).
+;
+; The second and last deterministic prototype weapon record. 150 raw Physical
+; per Quick Strike is an approximately 50%-more-Hit-damage upgrade chosen to
+; prove one exact relationship and nothing else:
+;
+;   ceil(300 Graveblade Life / 150 damage) = 2 Hits
+;
+; That is the whole point of Gate E's item half: a kill creates a visible reward,
+; and the reward makes the next equivalent enemy die in two Hits instead of
+; three. It is not a balance model and it is not a Base Type.
+;
+; Specification §13: "attack-speed change: none; other modifiers: none". The
+; comparison line "Attack Time 0.80 -> 0.80 s" is computed from this zero, not
+; written down as a string.
+;
+; It also does NOT use Normal / Magic / Rare / Wrought / Unique framing. Its
+; ground presentation is a stronger version of the room's existing quiet
+; indicator language, not a rarity beam.
+
+[ext_resource type="Script" path="res://scripts/combat/prototype_weapon_data.gd" id="1_weapon"]
+
+[resource]
+script = ExtResource("1_weapon")
+display_name = "Prototype Honed Sword"
+weapon_id = &"honed_sword"
+damage_type = "Physical"
+physical_damage = 150.0
+increased_attack_speed = 0.0

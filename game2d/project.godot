@@ -1,0 +1,66 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Riftwrought — P1A: Character Scale and Rendering Comparison.
+;
+; This is the separate sibling 2D Godot project accepted under D-347 ruling 1 and
+; created under the P1A authorization. It exists so that routine 2D iteration can
+; never move the eight whole-subtree production digests that the accepted runners
+; pin over `../game/`.
+;
+; THE BASE VIEWPORT AND THE DEFAULT OUTPUT RESOLUTION ARE OWNER-LOCKED AT 1920x1080
+; (D-354, confirmed D-356). At the locked 60.0 px/m that shows 32.00 x 18.00 m, and the wider battlefield
+; is deliberate: ARPG / roguelite pack density, area-effect interactions, projectile
+; visibility, kiting and simultaneous kill feedback. It authorizes no enemy count.
+;
+; THE CANONICAL RENDERING MODE IS LOCKED: mode 7, display-pinned fractional fill
+; (D-356 ruling 1). It is implemented by the PRESENTATION LAYER — the world renders into
+; a SubViewport at the locked base and the finished frame is stretched to fill the window
+; with nearest sampling, at a pinned display rect — and Godot's stretch system has no
+; setting that expresses it.
+;
+; SO THE THREE `window/stretch/*` KEYS BELOW STILL ENCODE NO MODE DECISION. They are the
+; neutral values this project was created with; the canonical mode sets
+; CONTENT_SCALE_MODE_DISABLED at start-up and presents the SubViewport itself. Do not
+; read these keys as the rendering mode, and do not "fix" them to match it — they would
+; be describing a different mode from the one that is locked.
+;
+; The world extent is FIXED at 1920x1080 base pixels = 32.00 x 18.00 m under the locked
+; mode, at every window size and aspect. Gameplay framing is never stretched and a bigger
+; or wider monitor never exposes more world (D-356 ruling 11).
+
+config_version=5
+
+[application]
+
+config/name="Riftwrought — P1A Scale & Rendering Comparison"
+config/description="P1A measurement harness: owner-exported Mage and Huntress idle frames, eight-direction switching, a deterministic five-second diagonal camera pan, and the seven compared rendering approaches with mode 7 locked as canonical. Not a game. Not a proof room. Not a tileset."
+config/version="0.1.0-p1a"
+run/main_scene="res://scenes/p1a_comparison.tscn"
+config/features=PackedStringArray("4.7", "Forward Plus")
+run/max_fps=60
+config/icon="res://icon.svg"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_call_argument=1
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+window/stretch/scale_mode="integer"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+anti_aliasing/quality/msaa_2d=0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+; Prototype Zero — Gate D encounter instrumentation overlay.
+; Development instrumentation only. This is NOT the Prototype HUD (§17) and NOT
+; Gate F's Fallen overlay: it has no Restart, no pause, and no settings.
+
+[ext_resource type="Script" path="res://scripts/ui/gate_d_encounter_overlay.gd" id="1_overlay"]
+
+[node name="EncounterOverlay" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_overlay")

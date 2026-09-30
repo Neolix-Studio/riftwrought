@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3]
+
+; Riftwrought — Riftfall Landing DEVELOPER REVIEW WRAPPER (first-MVP Gate 1C).
+;
+; This scene exists so a person can walk around the canonical Landing and judge
+; it. Everything it adds is temporary review scaffolding and none of it is
+; canonical character architecture: the body is the Gate 1A locomotion-only
+; calibration player REUSED UNCHANGED, and the camera, marker, pointer and
+; input-family components are the accepted shared ones.
+;
+; No InputMap action is added. Every developer control is a PHYSICAL key:
+;   F3 diagnostics overlay · F6 1 m grid · F7 navigation and collision roles
+;   [ ] inherited camera-distance calibration · \ reset
+; The default view is clean; only one small identification line is drawn.
+;
+; It contains no combat, enemy, reward, progression, save, transition or audio,
+; and it writes nothing. Reaching ExitToBrokenWatch is a developer measurement.
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/severed_threshold/riftfall_landing_review.tscn
+
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/riftfall_landing_review.gd" id="1_review"]
+[ext_resource type="PackedScene" path="res://scenes/first_mvp/severed_threshold/riftfall_landing.tscn" id="2_landing"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="3_camera"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="4_marker"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="5_family"]
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/riftfall_landing_overlay.gd" id="6_overlay"]
+
+[node name="RiftfallLandingReview" type="Node3D"]
+script = ExtResource("1_review")
+
+[node name="Landing" parent="." instance=ExtResource("2_landing")]
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("4_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("3_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("5_family")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+; Anchors AND offsets are written here, and the script additionally calls
+; set_anchors_and_offsets_preset for everything it builds in code. A full-rect
+; anchor over a zero-size rect collapses every child to the origin.
+[node name="RiftfallLandingOverlay" type="Control" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_overlay")

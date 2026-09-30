@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="PrototypeWeaponData" load_steps=2 format=3]
+
+; Riftwrought — Roguelite Core Loop Review: the weapon every expedition starts
+; with (decision D-220).
+;
+; A NEW record under a NEW, review-owned path. It is NOT a reuse, rename or
+; edit of Prototype Zero's `starter_sword.tres` or Gate 1D's
+; `starting_sword.tres` — both of those are fingerprinted by closed runners and
+; must stay byte-identical, and both belong to work this review must not
+; disturb.
+;
+; It reuses `PrototypeWeaponData` because that is the exact type
+; `PrototypePlayer.weapon` is declared as, so the proven, accepted, playtested
+; combat kernel runs completely unmodified with it equipped.
+;
+; 100 raw Physical is the project's own calibration reference for this role,
+; and it is reused here rather than re-derived so the established early proof
+; survives the pivot intact:
+;
+;   ceil(300 Graveblade Life / 100) = 3 Hits
+;
+; STILL NOT THE ITEM SYSTEM. No rarity, no Base Type, no Item Level, no
+; Implicit, no affix, no Tier, no roll, no slot. Two authored numbers.
+
+[ext_resource type="Script" path="res://scripts/combat/prototype_weapon_data.gd" id="1_weapon"]
+
+[resource]
+script = ExtResource("1_weapon")
+display_name = "Worn Blade"
+weapon_id = &"roguelite_worn_blade"
+damage_type = "Physical"
+physical_damage = 100.0
+increased_attack_speed = 0.0

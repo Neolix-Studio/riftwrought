@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="LabProgressionData" load_steps=2 format=3]
+
+; Prototype Zero — Gate E lab progression record (specification §15, D-184).
+;
+; The contained improvement loop's whole tuning surface. It is NOT a progression
+; system: there is no level, level curve, experience table, attribute, Passive
+; point, Passive path, skill point, reward table, or drop rate.
+;
+;   0 XP -> 10 XP (first eligible kill) -> 20 / 20 (second eligible kill)
+;   one guaranteed Prototype Honed Sword
+;   one contained passive: Quickened Form, 25% increased Attack Speed
+;   0.80 / 1.25 = 0.64 s, through the kernel's existing attack-speed mechanism
+;   deterministic waves of 1, then 2, then 3, repeating
+;
+; The spawn-safety values below are not decoration: `measure_spawn_plan()`
+; enforces every one of them before a wave is placed, and the Gate E suite
+; asserts the measurements on the same function ordinary play uses
+; (specification §14.3).
+
+[ext_resource type="Script" path="res://scripts/prototype_zero/lab_progression_data.gd" id="1_progression"]
+
+[resource]
+script = ExtResource("1_progression")
+experience_per_eligible_kill = 10
+experience_maximum = 20
+passive_name = "Quickened Form"
+passive_effect_line = "25% increased Attack Speed"
+passive_increased_attack_speed = 0.25
+wave_pattern = PackedInt32Array(1, 2, 3)
+wave_delay = 1.25
+minimum_spawn_separation = 1.6
+minimum_player_distance = 6.5
+maximum_spawn_spread_degrees = 120.0
+spawn_floor_margin = 1.0
+corpse_linger = 1.1
+message_seconds = 3.0

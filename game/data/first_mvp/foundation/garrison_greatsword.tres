@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="FirstMvpWeaponRecord" load_steps=2 format=3]
+
+; Riftwrought — Gate 1E: the heavy-melee Foundation Cache weapon (D-219).
+;
+; Canonical entry, design/FIRST_MVP_CONTENT_AND_REWARD_CATALOGUE.md section 4.1:
+;   | Garrison Greatsword | Two-Handed Sword | balanced heavy melee |
+;   | increased Area of Melee Skills |
+;
+; Pairs with Faultbreaker (section 4.1: "The first Foundation Cache uses:
+; Garrison Greatsword with Faultbreaker").
+;
+; TWO-HANDED, SO IT OCCUPIES MAIN HAND AND OFF HAND. FirstMvpEquipment reads
+; `hands` and reports the Off Hand as occupied; the first MVP has no off-hand
+; item yet, so nothing is displaced by that today and the rule is nonetheless
+; real and testable.
+;
+; 120 raw Physical sits between the Worn Sword's 100 and the Watchsteel Sword's
+; 150 ON PURPOSE. The Foundation weapon must not silently obsolete the reward
+; the player just earned in Broken Watch — Faultbreaker's own 1.60x scale is
+; what makes the greatsword hit hard (120 x 1.60 = 192 per Hit), while Quick
+; Strike with a greatsword is not even legal. The choice is therefore about
+; which Skill you want to explore, exactly as the Cache promises, rather than
+; about which weapon has the bigger number.
+;
+; The implicit is DESCRIBED and NOT IMPLEMENTED. "Increased Area of Melee
+; Skills" is quoted from the catalogue and shown truthfully as an authored
+; property; implementing it would be the affix system, which is outside Gate 1E.
+
+[ext_resource type="Script" path="res://scripts/items/first_mvp_weapon_record.gd" id="1_record"]
+
+[resource]
+script = ExtResource("1_record")
+display_name = "Garrison Greatsword"
+weapon_id = &"garrison_greatsword"
+damage_type = "Physical"
+physical_damage = 120.0
+increased_attack_speed = 0.0
+base_type = "Two-Handed Sword"
+weapon_family = &"two_handed_sword"
+hands = 1
+item_id = &"garrison_greatsword"
+item_level = 1
+required_level = 1
+implicit_text = "Increased Area of Melee Skills (described; the affix system is not implemented yet)"
+identity_line = "Balanced heavy melee. Garrison issue, kept sharp by people who expected relief."

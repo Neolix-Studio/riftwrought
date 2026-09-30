@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3]
+
+; Prototype Zero visual rig — temporary Knight-bodied test adventurer.
+; This is NOT the Riftmarked and selects no class. Gate A proves the rig,
+; scale, medium-rig clips, and handslot.r weapon attachment only.
+
+[ext_resource type="PackedScene" path="res://assets/third_party/kaykit/adventurer/Knight.glb" id="1_body"]
+[ext_resource type="AnimationLibrary" path="res://assets/third_party/kaykit/animations/rig_medium_prototype_library.res" id="2_clips"]
+[ext_resource type="PackedScene" path="res://assets/third_party/kaykit/adventurer/sword_1handed.gltf" id="3_weapon"]
+[ext_resource type="Script" path="res://scripts/actors/medium_rig_visual.gd" id="4_script"]
+
+[node name="KnightRig" type="Node3D"]
+script = ExtResource("4_script")
+skeleton_path = NodePath("Knight/Rig_Medium/Skeleton3D")
+weapon_socket_bone = &"handslot.r"
+
+[node name="Knight" parent="." instance=ExtResource("1_body")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Knight")
+libraries = {
+&"": ExtResource("2_clips")
+}
+
+[node name="WeaponSocket" type="BoneAttachment3D" parent="."]
+bone_name = "handslot.r"
+bone_idx = 13
+use_external_skeleton = true
+external_skeleton = NodePath("../Knight/Rig_Medium/Skeleton3D")
+
+[node name="StarterSword" parent="WeaponSocket" instance=ExtResource("3_weapon")]

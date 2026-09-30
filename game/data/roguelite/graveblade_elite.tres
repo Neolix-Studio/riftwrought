@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="GravebladeData" load_steps=2 format=3]
+
+; Riftwrought — Roguelite Core Loop Review: the Elite Hall's heavier
+; Graveblade (decision D-220).
+;
+; IT IS THE SAME ENEMY FAMILY, THE SAME BODY, THE SAME ATTACK PACKAGE AND THE
+; SAME COMBAT LANGUAGE. Every field below is byte-for-byte the accepted
+; `data/prototype_zero/graveblade.tres` value with EXACTLY ONE exception:
+;
+;   max_life   300.0  ->  600.0
+;
+; That single axis is the whole of "slightly more demanding". Nothing about
+; how the fight READS has moved: the 0.55 s anticipation the player answers,
+; the 0.60 commit fraction and its 0.22 s of visible committed lead, the 90
+; degree arc centred on the committed direction, the 1.65 m reach, the 1.40 m
+; hold distance, the 3.4 m/s approach and the 0.35 s minimum interval are all
+; unchanged, so the answer the player learned in the Teaching Hall is still
+; the right answer here.
+;
+; `physical_damage` is deliberately NOT raised. The player's own four-Hit
+; death relationship — ceil(500 / 125) = 4, 500 -> 375 -> 250 -> 125 -> 0 — is
+; an accepted Prototype Zero value, and moving it inside a room-count review
+; would bury a combat rebalance inside a structural change.
+;
+; What it costs the player, exactly:
+;
+;   ceil(600 / 100) = 6 Hits  (Worn Blade)
+;   ceil(600 / 150) = 4 Hits  (Expedition Blade)
+;
+; THIS IS NOT AN ELITE MODIFIER. `design/ENEMIES_AND_ELITES.md`'s eight
+; first-MVP Elite Modifiers each require a visible behavioural identity, and
+; none of them is implemented, authorized or implied here. This is one tuning
+; record with one number changed, and it is called an Elite only in the
+; ordinary sense that it is the harder fight at the end of the run.
+;
+; `awareness_distance` is unchanged at 10.0 so the Elite notices the player at
+; the same distance every other Graveblade does — the escort standing beside
+; it is what makes the room busier, not a longer leash.
+
+[ext_resource type="Script" path="res://scripts/combat/graveblade_data.gd" id="1_graveblade"]
+
+[resource]
+script = ExtResource("1_graveblade")
+display_name = "Graveblade Vanguard"
+damage_type = "Physical"
+attack_display_name = "Melee Hit"
+max_life = 600.0
+physical_damage = 125.0
+move_speed = 3.4
+awareness_distance = 10.0
+preferred_attack_distance = 1.4
+attack_reach = 1.65
+attack_arc_degrees = 90.0
+anticipation = 0.55
+release_window = 0.08
+recovery = 0.62
+minimum_commitment_interval = 0.35
+commit_at_anticipation_fraction = 0.6
+spawn_settle = 0.3
+experience_reward = 10

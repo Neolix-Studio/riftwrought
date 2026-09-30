@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3]
+
+; Prototype Zero — Gate D: the one Graveblade.
+;
+; The registered KayKit Skeleton Warrior carrying the registered Skeleton Blade.
+; This scene owns pursuit, the attack-permission request, a committed and
+; readable attack, Life, deterministic Physical damage, and mechanical death.
+; It has no XP award, no loot, and no wave logic: those are Gates E and F.
+;
+; Capsule: 0.80 m diameter (P) x 1.80 m tall — the same body the player has, so
+; reach and awareness distances mean one thing across the encounter.
+;
+; Physics layers: the body is on layer 4 ("enemy") and masks world + player, so
+; it blocks and is blocked but never enters the navigation bake. Its TargetArea
+; is on layer 3 ("target"), which is where Quick Strike's cursor pick,
+; soft-target cone, and release query look.
+;
+; The retimed attack clip is attached HERE rather than inside
+; graveblade_rig.tscn, so the Gate A rig scenes and the preserved Gate A spike
+; stay byte-for-byte unchanged.
+
+[ext_resource type="Script" path="res://scripts/actors/prototype_graveblade.gd" id="1_graveblade"]
+[ext_resource type="PackedScene" path="res://scenes/actors/graveblade_rig.tscn" id="2_rig"]
+[ext_resource type="AnimationLibrary" path="res://assets/prototype/animation/graveblade_prototype_animation.res" id="3_attack_clip"]
+[ext_resource type="Resource" path="res://data/prototype_zero/graveblade.tres" id="4_data"]
+[ext_resource type="Script" path="res://scripts/actors/graveblade_target_area.gd" id="5_target"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_1"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="QuadMesh" id="BarBackMesh_1"]
+size = Vector2(1.18, 0.28)
+
+[sub_resource type="QuadMesh" id="BarFillMesh_1"]
+size = Vector2(1.1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="BarBack_1"]
+shading_mode = 0
+transparency = 1
+albedo_color = Color(0.06, 0.065, 0.08, 0.85)
+
+[sub_resource type="StandardMaterial3D" id="BarFill_1"]
+shading_mode = 0
+transparency = 1
+albedo_color = Color(0.78, 0.26, 0.24, 1)
+
+[node name="PrototypeGraveblade" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 3
+floor_snap_length = 0.2
+script = ExtResource("1_graveblade")
+data = ExtResource("4_data")
+attack_library = ExtResource("3_attack_clip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_1")
+
+[node name="VisualRoot" type="Node3D" parent="."]
+
+[node name="GravebladeRig" parent="VisualRoot" instance=ExtResource("2_rig")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.4
+target_desired_distance = 0.3
+radius = 0.4
+avoidance_enabled = false
+debug_enabled = false
+
+[node name="TargetArea" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+monitorable = true
+script = ExtResource("5_target")
+
+[node name="LifeBar" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+visible = false
+
+[node name="Back" type="MeshInstance3D" parent="LifeBar"]
+mesh = SubResource("BarBackMesh_1")
+material_override = SubResource("BarBack_1")
+cast_shadow = 0
+
+[node name="Fill" type="MeshInstance3D" parent="LifeBar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.005)
+mesh = SubResource("BarFillMesh_1")
+material_override = SubResource("BarFill_1")
+cast_shadow = 0

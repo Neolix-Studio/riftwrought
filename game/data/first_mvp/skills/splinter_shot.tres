@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="FirstMvpSkillData" load_steps=2 format=3]
+
+; Riftwrought — Gate 1E: Splinter Shot, the projectile Foundation Skill (D-219).
+;
+; Canonical foundation (design/SKILLS_AND_SKILL_MODIFICATION.md):
+;   "Physical Projectile Attack" — Attack, Projectile, Hit, Physical.
+;   "Splinter Shot is a bow- or crossbow-fired Physical projectile with
+;    straightforward baseline behavior."
+;   "It is the first broad test of the reusable projectile framework."
+;
+; BASELINE IS EXACTLY ONE PROJECTILE. Pierce, Chain, Return, additional
+; projectiles and conversion are Augments; the Gate 1E brief names every one of
+; them as excluded, and FirstMvpSkillData.problem() refuses projectile_count
+; other than 1 for this gate.
+;
+; RANGE IS BOUNDED BY WHAT THE PLAYER CAN SEE. The accepted 19 m / 55 deg /
+; 45 deg camera shows ground from 7.448 m behind the body to 13.532 m ahead of
+; it (Gate 1C report section 8.1). A 12.00 m range therefore always resolves
+; inside the visible frame; a longer one would fire at things off the top of
+; the screen. At 26.0 m/s that is a 0.46 s flight to maximum range.
+;
+; Weapon-derived damage at 1.00x, the same scale Quick Strike uses, over a
+; slightly longer 0.95 s action: ranged safety is paid for with cadence rather
+; than with a damage penalty.
+
+[ext_resource type="Script" path="res://scripts/skills/first_mvp_skill_data.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+skill_id = &"splinter_shot"
+display_name = "Splinter Shot"
+tags = [&"Attack", &"Projectile", &"Hit", &"Physical"]
+identity = "A single Physical shot along your aim. Straightforward, directional, and safe at a distance — it does not need an enemy to loose."
+archetype = 2
+damage_source = 0
+animation_family = 2
+damage_type = "Physical"
+action_time = 0.95
+release_marker_normalized = 0.42
+release_window = 0.06
+input_buffer = 0.12
+weapon_damage_scale = 1.0
+spell_damage = 0.0
+reach = 0.0
+release_arc_degrees = 0.0
+area_radius = 0.0
+maximum_targets = 1
+approach_stop_margin = 0.1
+projectile_speed = 26.0
+projectile_range = 12.0
+projectile_radius = 0.2
+projectile_count = 1
+mana_cost = 7.0
+required_weapon_families = [&"bow", &"crossbow"]
+requirement_text = "Requires a bow or crossbow"
+soft_target_distance = 12.0
+soft_target_cone_degrees = 45.0
+soft_target_angle_tie_degrees = 12.0
+soft_target_retention = 0.35

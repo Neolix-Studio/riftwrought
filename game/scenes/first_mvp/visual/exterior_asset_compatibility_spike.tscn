@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3]
+
+; Riftwrought — First-MVP Gate 1B Exterior Asset Compatibility Spike.
+;
+; A TEMPORARY DEVELOPER SCENE, authorized by D-198. It is not canonical, it is
+; NOT Riftfall Landing, it is not the Severed Threshold, it is not campaign
+; content, and it does not replace the persistent Prototype Zero main scene at
+; scenes/app/prototype_app.tscn, which remains the project entrypoint and the
+; regression authority. It is also completely separate from the Gate 1A
+; calibration hall at scenes/first_mvp/calibration/scale_calibration_hall.tscn,
+; whose player scene it REUSES UNCHANGED rather than cloning.
+;
+; It contains: the project-authored comparison ground and its collision, a
+; navigation region baked from that collision, the three §5 comparison areas
+; built from the exact §4 candidate manifest, the registered Dungeon transition
+; reference, the accepted camera rig, destination marker, and input-family
+; tracker, the two review lighting states, and the review overlay.
+;
+; It contains NO combat, Quick Strike, target acquisition, enemy, damage, Life,
+; Mana, loot, XP, Passive, inventory, story, Mara, Nexus, Riftmarked
+; presentation, procedural generation, route, HUD, save, or settings, and it
+; writes NOTHING to disk — it has no storage path at all.
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/visual/exterior_asset_compatibility_spike.tscn
+
+[ext_resource type="Script" path="res://scripts/first_mvp/visual/exterior_asset_compatibility_spike.gd" id="1_spike"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual/exterior_spike_layout.gd" id="2_layout"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual/exterior_review_lighting.gd" id="3_lighting"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="4_camera"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="5_marker"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="6_family"]
+[ext_resource type="PackedScene" path="res://scenes/first_mvp/visual/exterior_spike_overlay.tscn" id="7_overlay"]
+
+[node name="ExteriorAssetCompatibilitySpike" type="Node3D"]
+script = ExtResource("1_spike")
+
+; Both environments are built in code by ReviewLighting, so neither review state
+; can be quietly different from what the report says it is.
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="ReviewLighting" type="Node" parent="."]
+script = ExtResource("3_lighting")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+
+[node name="Layout" type="Node3D" parent="NavigationRegion3D"]
+script = ExtResource("2_layout")
+grid_visible = false
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("5_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("4_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("6_family")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ExteriorSpikeOverlay" parent="CanvasLayer" instance=ExtResource("7_overlay")]

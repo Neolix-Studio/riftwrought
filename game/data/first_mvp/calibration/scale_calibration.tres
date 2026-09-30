@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="ScaleCalibrationData" load_steps=2 format=3]
+
+; Riftwrought — First-MVP Gate 1A Scale Calibration Hall.
+;
+; The authoritative local calibration record (specification §8). The hall BUILDS
+; from these values and the overlay MEASURES the built result, so nothing on
+; screen is a hand-typed expectation.
+;
+; The §4 block reproduces D-175's ACCEPTED Prototype Zero measurements as Gate
+; 1A starting values. They are candidate first-MVP values, not permission to
+; rewrite Prototype Zero's defaults, which this scene does not touch.
+;
+; The marker sizes are TEST INPUTS. The project owner has chosen no Mauler body,
+; no Mauler commitment footprint, and no Cinder Seal radius; these exist so those
+; questions can be looked at, not answered.
+
+[ext_resource type="Script" path="res://scripts/first_mvp/calibration/scale_calibration_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+world_unit_metres = 1.0
+player_unit_metres = 0.8
+camera_distance_metres = 19.0
+camera_pitch_degrees = 55.0
+camera_fov_degrees = 45.0
+maximum_movement_speed = 5.0
+target_hall_length_p = 64.0
+target_hall_width_p = 36.0
+floor_module_metres = 4.0
+stress_gate_p = 4.0
+ordinary_connector_p = 6.0
+broad_connector_p = 10.0
+major_gate_p = 14.0
+close_lane_p = 14.0
+broad_lane_p = 22.0
+ranged_mark_metres = PackedFloat32Array(5, 10, 15)
+probe_speed_metres_per_second = 18.0
+probe_height_metres = 1.0
+graveblade_body_diameter_metres = 0.8
+graveblade_body_height_metres = 1.9
+mauler_body_diameter_metres = 1.6
+mauler_body_height_metres = 2.6
+marrowshot_body_diameter_metres = 0.8
+marrowshot_body_height_metres = 1.9
+surround_ring_radius_metres = 1.9
+surround_ring_count = 6
+mauler_arc_radius_metres = 4.0
+mauler_arc_degrees = 90.0
+cinder_seal_radius_metres = 3.0
+marker_preset_scales = PackedFloat32Array(1, 0.65, 1.45)
+geometry_tolerance_metres = 0.02

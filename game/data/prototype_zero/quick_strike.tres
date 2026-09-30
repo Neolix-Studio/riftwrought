@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="QuickStrikeData" load_steps=2 format=3]
+
+; Prototype Zero — Quick Strike tuning record.
+;
+; Locked by decision D-168 (timing, reach, arc, cost), D-169 (targeting), and
+; D-178 (cone interpretation and in-reach priority).
+; These are controlled FIRST CALIBRATION values for the contained laboratory,
+; not the final first-MVP balance model.
+;
+; `soft_target_cone_degrees` is a TOTAL cone width centred on the intended
+; direction, so 65.0 means +/- 32.5 degrees (D-178). It was previously read as a
+; half-angle; the stored number did not change, its meaning did.
+;
+; The wind-up, release window, and recovery are derived, never stored twice:
+;   wind-up  = action_time * release_marker_normalized = 0.80 * 0.325 = 0.26 s
+;   release  = 0.06 s
+;   recovery = 0.80 - 0.26 - 0.06                      = 0.48 s
+;
+; `release_marker_normalized` is also the normalised position of the visible
+; contact pose inside the retimed clip `Quick_Strike_Slice`, which is what makes
+; the marker, the damage query, and the visible impact agree at any attack speed.
+
+[ext_resource type="Script" path="res://scripts/combat/quick_strike_data.gd" id="1_quick_strike"]
+
+[resource]
+script = ExtResource("1_quick_strike")
+display_name = "Quick Strike"
+damage_type = "Physical"
+action_time = 0.8
+release_marker_normalized = 0.325
+release_window = 0.06
+input_buffer = 0.12
+reach = 1.65
+release_arc_degrees = 100.0
+maximum_targets = 1
+approach_stop_margin = 0.1
+mana_cost = 5.0
+soft_target_distance = 5.0
+; TOTAL cone width, so 65.0 means +/- 32.5 degrees (D-178).
+soft_target_cone_degrees = 65.0
+soft_target_angle_tie_degrees = 12.0
+soft_target_retention = 0.35

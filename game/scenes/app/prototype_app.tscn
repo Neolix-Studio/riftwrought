@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3]
+
+; Prototype Zero — the persistent application root (specification §7.1).
+;
+; This is the project MAIN SCENE from Gate F onward. It owns Start New Lab /
+; Continue Lab, Settings, Quit, the settings store, the lab test-state store,
+; the audio director, the display manager, input-family tracking, and loading or
+; replacing the lab scene. It owns no gameplay.
+;
+; `scenes/prototype_zero/prototype_zero.tscn` is instanced under World when a lab
+; is started or continued, and freed on Quit to Title. It is still runnable on
+; its own — the Gate A-E suites load it directly, and it builds its own default
+; settings and audio when no app configured it.
+;
+; The CanvasLayer sits at layer 10 so the title screen and the timed display
+; confirmation draw above the room's own layer-0 surfaces.
+
+[ext_resource type="Script" path="res://scripts/app/prototype_app.gd" id="1_app"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="2_family"]
+[ext_resource type="Script" path="res://scripts/app/prototype_audio_director.gd" id="3_audio"]
+[ext_resource type="Script" path="res://scripts/app/prototype_display_manager.gd" id="4_display"]
+[ext_resource type="Script" path="res://scripts/ui/prototype_title_screen.gd" id="5_title"]
+[ext_resource type="Script" path="res://scripts/ui/prototype_display_prompt.gd" id="6_prompt"]
+
+[node name="PrototypeApp" type="Node"]
+script = ExtResource("1_app")
+
+; The one authoritative tracker in the shipped flow. A loaded room adopts it and
+; frees its own, so every glyph on screen comes from the same answer.
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("2_family")
+
+; Named cue routing over the project-authored cues in assets/prototype/audio.
+; PROCESS_MODE_ALWAYS is set in code: a cue must not be cut in half when a modal
+; pauses the world, and the Master slider must be audible while it is dragged.
+[node name="AudioDirector" type="Node" parent="."]
+script = ExtResource("3_audio")
+
+[node name="DisplayManager" type="Node" parent="."]
+script = ExtResource("4_display")
+
+; The lab scene is instanced here.
+[node name="World" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="TitleScreen" type="Control" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_title")
+
+; Drawn last, so the timed Keep / Revert confirmation is above the title screen
+; and above every in-room surface including the settings modal that opened it.
+[node name="DisplayPrompt" type="Control" parent="CanvasLayer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_prompt")

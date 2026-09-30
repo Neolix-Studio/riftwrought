@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+
+; Prototype Zero — Gate E ground item comparison (specification §16.1).
+;
+; Shows only the current and candidate names, the three factual rows, and
+; Equip / Close. Every number is computed from the two weapon records and the
+; Graveblade's own record; nothing is written down. There is no Item Power score,
+; universal verdict, rarity frame, affix list, requirement, inventory grid, or
+; equipment slot.
+;
+; PROCESS_MODE_WHEN_PAUSED: it pauses the world and keeps running itself.
+
+[ext_resource type="Script" path="res://scripts/ui/gate_e_item_comparison.gd" id="1_comparison"]
+
+[node name="ItemComparison" type="Control"]
+process_mode = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_comparison")

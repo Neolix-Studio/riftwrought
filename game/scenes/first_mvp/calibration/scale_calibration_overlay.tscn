@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3]
+
+; Riftwrought — First-MVP Gate 1A calibration overlay.
+;
+; Developer instrument only. This is NOT the §17 Prototype HUD and NOT the
+; first-MVP interface. Anchors AND offsets are both written here, and the script
+; uses set_anchors_and_offsets_preset for everything it builds in code.
+
+[ext_resource type="Script" path="res://scripts/first_mvp/calibration/scale_calibration_overlay.gd" id="1_overlay"]
+
+[node name="CalibrationOverlay" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_overlay")

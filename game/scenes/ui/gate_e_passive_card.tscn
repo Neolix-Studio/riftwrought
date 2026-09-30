@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3]
+
+; Prototype Zero — Gate E passive prompt (specification §16.2).
+;
+; One contained reward card, not a tree: Quickened Form, 25% increased Attack
+; Speed, the computed 0.80 s -> 0.64 s line, and Confirm. No Passive points, no
+; paths, no attributes, no regions, no sockets, no refunds, no search, no
+; Build Lens.
+;
+; PROCESS_MODE_WHEN_PAUSED: it pauses the world and keeps running itself.
+
+[ext_resource type="Script" path="res://scripts/ui/gate_e_passive_card.gd" id="1_passive"]
+
+[node name="PassiveUpgrade" type="Control"]
+process_mode = 4
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_passive")

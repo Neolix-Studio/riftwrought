@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3]
+
+; Riftwrought — Gate 1E: the integrated canonical opening (D-219).
+;
+; Riftfall Landing -> Broken Watch -> Nexus Threshold -> the Rift Nexus, as ONE
+; directly runnable composition with a saved character.
+;
+; It reuses Gate 1D's scene STRUCTURE exactly — the same node names, types and
+; order — because `CanonicalOpeningRuntime` extends `BrokenWatchSlice` and that
+; script resolves those nodes by path in its own `_ready()`. Two layouts are
+; ADDED as siblings under the SAME NavigationRegion3D, so all four spaces bake
+; as one continuous navigation mesh from one bake.
+;
+; `broken_watch_slice.tscn` is untouched and still runs on its own.
+;
+; No InputMap action is added. Every control is either Gate 1D's own or a
+; physical key:
+;   F1 Origin Ring · F2 Foundation Cache · F5 Start Fresh · F8 save now
+;   F6 grid · [ ] camera distance · \ reset
+;
+; Run it directly:
+;   /Applications/Godot.app/Contents/MacOS/Godot --path game \
+;     res://scenes/first_mvp/canonical_opening/canonical_opening.tscn
+;
+; Start fresh, or point it at isolated storage:
+;   ... canonical_opening.tscn -- --start-fresh
+;   ... canonical_opening.tscn -- --state-dir /tmp/somewhere
+
+[ext_resource type="Script" path="res://scripts/first_mvp/canonical_opening/canonical_opening_runtime.gd" id="1_runtime"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual/exterior_review_lighting.gd" id="2_lighting"]
+[ext_resource type="Script" path="res://scripts/first_mvp/greybox/riftfall_landing_greybox_layout.gd" id="3_landing"]
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/broken_watch_layout.gd" id="4_broken_watch"]
+[ext_resource type="Script" path="res://scripts/first_mvp/severed_threshold/nexus_threshold_layout.gd" id="5_nexus_threshold"]
+[ext_resource type="Script" path="res://scripts/first_mvp/nexus/rift_nexus_layout.gd" id="6_rift_nexus"]
+[ext_resource type="Script" path="res://scripts/first_mvp/visual_review/riftfall_landing_visual_review_dressing.gd" id="7_dressing"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="8_marker"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="9_camera"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="10_input_family"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_combat_hud.gd" id="11_hud"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_item_comparison.gd" id="12_comparison"]
+[ext_resource type="Script" path="res://scripts/ui/first_mvp_fallen_overlay.gd" id="13_fallen"]
+
+[node name="CanonicalOpening" type="Node3D"]
+script = ExtResource("1_runtime")
+
+; Built in code by ExteriorReviewLighting, reused unchanged — the accepted
+; D-206 exterior direction, one implementation in the whole project.
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+
+[node name="ExteriorLighting" type="Node" parent="."]
+script = ExtResource("2_lighting")
+
+[node name="Composition" type="Node3D" parent="."]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Composition"]
+
+[node name="Landing" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("3_landing")
+
+[node name="BrokenWatch" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("4_broken_watch")
+
+[node name="NexusThreshold" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("5_nexus_threshold")
+
+[node name="RiftNexus" type="Node3D" parent="Composition/NavigationRegion3D"]
+script = ExtResource("6_rift_nexus")
+
+[node name="LandingDressing" type="Node3D" parent="Composition"]
+script = ExtResource("7_dressing")
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("8_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("9_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("10_input_family")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" type="Control" parent="CanvasLayer"]
+script = ExtResource("11_hud")
+
+[node name="ItemComparison" type="Control" parent="CanvasLayer"]
+script = ExtResource("12_comparison")
+
+[node name="FallenOverlay" type="Control" parent="CanvasLayer"]
+script = ExtResource("13_fallen")

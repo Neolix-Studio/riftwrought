@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3]
+
+; Riftwrought — ROGUELITE I3: LIVE LEVEL-UP EFFECT APPLICATION REVIEW V1 (decision D-295).
+;
+; One question, asked in play: collect real Experience Motes to exactly the Level 1
+; requirement -> the accepted three-card panel opens and holds the world still ->
+; one card is chosen -> the expedition's whole temporary build is applied to the
+; character before another frame runs -> play resumes with the chosen effect live,
+; and the receipt says what is live -> the expedition ends and every value returns
+; to its baseline.
+;
+; IT IS NOT THE PROJECT ENTRYPOINT AND MUST NEVER BECOME ONE. `run/main_scene` is
+; still the Prototype App. Launch this scene with Run Current Scene, never Run
+; Project, or:
+;   godot --path game res://scenes/roguelite/roguelite_live_effect_review.tscn -- --seed 99
+;
+; IT INHERITS THE ACCEPTED LEVEL-UP CHOICE REVIEW SCENE (I2) AND ADDS NO NODE OF ITS
+; OWN. The one line below this header that differs from that scene is the root's
+; script, which EXTENDS I2's runtime: the accepted loop, the Experience Mote layer,
+; the three-card panel and the receipt all come from the accepted scenes and code,
+; neither copied nor edited.
+;
+; Controls are the accepted core loop's, unchanged. Review keys are PHYSICAL:
+;   F8 automatic mote pickup ON/OFF · F6 grid · [ ] camera distance · \ reset
+;   F5 abandon the run
+; While the level-up panel is open only the card controls answer: arrows / D-pad
+; move between cards, Enter / (A) or a left click chooses. There is no close.
+
+[ext_resource type="PackedScene" path="res://scenes/roguelite/roguelite_level_up_choice_review.tscn" id="1_choice_review"]
+[ext_resource type="Script" path="res://scripts/roguelite/live_effects/roguelite_live_effect_review.gd" id="2_live_effect_review"]
+
+[node name="RogueliteLiveEffectReview" instance=ExtResource("1_choice_review")]
+script = ExtResource("2_live_effect_review")

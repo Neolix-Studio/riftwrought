@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3]
+
+; Prototype Zero — player.
+;
+; The Knight body is a temporary test adventurer. It is NOT the Riftmarked and
+; selects no class. This scene owns locomotion, the combined action state, Life,
+; Mana, the Quick Strike kernel, and — since Gate E — the ONE equipped
+; deterministic weapon record. It still has no XP (that lives on the
+; authoritative LabProgress record), no inventory, and no equipment slot; the
+; Fallen overlay, Restart flow, and test-state save are Gate F.
+;
+; Capsule: 0.80 m diameter (P) x 1.80 m tall, the values approved under D-175.
+; The measured Knight body is 0.79 m across the shoulders, so P matches the model
+; rather than overriding it.
+;
+; The retimed Quick Strike clip is attached HERE rather than inside
+; knight_rig.tscn, so the Gate A rig scenes and the preserved Gate A spike stay
+; byte-for-byte unchanged.
+
+[ext_resource type="Script" path="res://scripts/actors/prototype_player.gd" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/actors/knight_rig.tscn" id="2_knight"]
+[ext_resource type="AnimationLibrary" path="res://assets/prototype/animation/quick_strike_prototype_animation.res" id="3_attack_clip"]
+[ext_resource type="Script" path="res://scripts/combat/quick_strike_action.gd" id="4_action"]
+[ext_resource type="Resource" path="res://data/prototype_zero/quick_strike.tres" id="5_quick_strike"]
+[ext_resource type="Resource" path="res://data/prototype_zero/starter_sword.tres" id="6_starter_sword"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_1"]
+radius = 0.4
+height = 1.8
+
+[node name="PrototypePlayer" type="CharacterBody3D"]
+collision_layer = 2
+; World (1) + enemy (8). The Graveblade blocks the player and is blocked by it;
+; the "target" layer is deliberately absent, so target areas still cannot change
+; a Gate B locomotion result.
+collision_mask = 9
+floor_snap_length = 0.2
+script = ExtResource("1_player")
+quick_strike_library = ExtResource("3_attack_clip")
+; Gate E: the character starts with the 100-damage Prototype Training Sword.
+; Equipping the Honed Sword swaps this reference and nothing else — there is no
+; inventory and no equipment slot.
+weapon = ExtResource("6_starter_sword")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_1")
+
+[node name="VisualRoot" type="Node3D" parent="."]
+
+[node name="KnightRig" parent="VisualRoot" instance=ExtResource("2_knight")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.4
+target_desired_distance = 0.2
+radius = 0.4
+avoidance_enabled = false
+debug_enabled = false
+
+[node name="QuickStrikeAction" type="Node" parent="."]
+script = ExtResource("4_action")
+data = ExtResource("5_quick_strike")

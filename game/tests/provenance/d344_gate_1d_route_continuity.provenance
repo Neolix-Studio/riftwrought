@@ -1,0 +1,1309 @@
+RIFTWROUGHT ACCEPTED-SUITE PROVENANCE 1
+# First-MVP Gameplay J11 (decision D-344): Gate 1D Landing-to-Broken-Watch Route Continuity V1.
+# Written once and never rewritten. It carries only J11's own delta: the pair list that puts each file
+# J11 moved back to the bytes D-343 left, and one edge per file. No text, pair list or suite body from an
+# earlier store file or an earlier suite is copied into it.
+@text 00184e2c2b01c0b4ad55ca2043209f3e6f6adce341444b0bad517757d59eadce
+=66
+	var source: String = FileAccess.get_file_as_string(SLICE_SCRIPT)
+
+@end
+@text 01c3275ec550410a4eb65b8d0fe09a42139e80eda4f6a3f81d8c0c0a151a9161
+=243
+entry() now answers local (3.00, -34.75): the same capsule there meets only ground plates, the navigation mesh lies 0.0000 m from it, and a path from Riftfall Landing's player start reaches it in 38 points and 62.78 m, ending 0.0000 m from it
+
+@end
+@text 01fbad526569888f1d1731b52ca79f820d2aea505052518c58170654117d47c0
+=104
+rebuilt_moved="$({ put_back_slice "$PROJECT_DIR/$SLICE"; printf 'x'; } | shasum -a 256 | cut -d' ' -f1)"
+@end
+@text 037445a9984c49bb914108cf87afbe921c2e21e8ab95cebf916a54eccfb957c4
+=73
+_before_j10(path, _before_j11(path, FileAccess.get_file_as_string(path)))
+@end
+@text 04929cc702527dedefcc25abd00184af8d859c7faa11c4e5a0b85c8767088374
+=11
+D328_ROWS=(
+@end
+@text 0855f5f668f1a0a771a65b704d3507787f2b9832f354610d8a07e49de2330127
+=181
+			and FileAccess.get_sha256(J2_VERIFICATION).begins_with(J11_J2_PREFIX)
+			and _before_j11(FileAccess.get_file_as_string(J2_VERIFICATION)).sha256_text().begins_with(J10_J2_PREFIX)
+
+@end
+@text 08f0aa2b9cba2e97417b73bd7d8da4067676bb9429acf7c2bb0f687b02a99d41
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D338_ROWS=(
+@end
+@text 0a2f8d01127a3241dfe837fb9c271b05d5e28b10af6639706d465d3ade4e6e7f
+=211
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(String(J10_PREFIXES[SLICE_SCRIPT])) and digest.begins_with(J9_SLICE_PREFIX) and bool(rebuilt["unique"]) and pre_text.sha256_text() == PRE_J9_SLICE_SHA256
+
+@end
+@text 0b14078688b7e6f972df860d309b66fb9a2ad8e1a8a2a4802de639b958a903c6
+=11
+D330_ROWS=(
+@end
+@text 0bf0ab0f384b864d3da903c2a417f3fb6b179179c6f067629ee0aa740f40ac31
+=29
+	"$J7_VERIFICATION|09e25736"
+
+@end
+@text 0e8440d7e8bb51b2fdd114d227f73c508d82c07cbb8c321da4eafb1ac36f348f
+=359
+J11_FIRST=$'\t# First-MVP Gameplay J11 (decision D-344): RIFTFALL LANDING CLOSED ITS OWN FAR END,'
+J11_LAST=$'\tlog_event("landing cap opened", "%d Riftfall Landing boundary mass overlaps Broken Watch; its %d built nodes are removed in THIS composition, before the bake" % [landing_caps.size(), cap_nodes_removed])'
+
+# The slice with J10's three lines dropped
+@end
+@text 0ef13663c1989ba0abe927266045a29c8ba77ec6005fefeb4cfe81015103aa2f
+=29
+	"$J1_VERIFICATION|75f26486"
+
+@end
+@text 0ff17f8670105a528407765af1f6ee2b1002f52ca8656b3f5aab7d09f8fa8518
+=119
+	var source: String = _before_j9(SLICE_SCRIPT, _before_j10(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)))
+
+@end
+@text 1546edd79723fbd4b85be1918b52b9d99ff14869caa9535f47bb7bd74661457f
+=30
+## Everything J3 stands beside
+@end
+@text 1565f43c3964ca4c5e57f201eba6d9cf283617ccf7ef45921175c23b8623425e
+=1605
+var J10_MOVES: Dictionary = _stored(J10_MOVE_IDS)
+
+## First-MVP Gameplay J11 (D-344) moved Gate 1D's slice and the accepted suite files above again, one for one,
+## when the slice came to open Riftfall Landing's Watch Breach far cap in this composition. Each is first put
+## back to where D-343 left it and then read exactly as before: `J11_PREFIXES` holds each file's J11 prefix, and
+## `J11_MOVES` its pairs of [as J11 wrote it, as D-343 left it], named in `J11_MOVE_IDS` and applied to that file
+## alone.
+const J11_PREFIXES: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "d4e839fb",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "d12ad271",
+	"res://tests/fallen_modal_life_state_verification.gd": "72e39a8a",
+	"res://tests/pending_fallen_restart_verification.gd": "7d0e3f08",
+	"res://tests/pending_fallen_restart_smoke.sh": "54a4464a",
+}
+const J11_MOVE_IDS: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "f0f7cf747a8cc738a5e9477ea2028e6d863d9d83d3cc6799d39032a0275db868",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/fallen_modal_life_state_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/pending_fallen_restart_verification.gd": "eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2",
+	"res://tests/pending_fallen_restart_smoke.sh": "a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2",
+}
+var J11_MOVES: Dictionary = _stored(J11_MOVE_IDS)
+
+@end
+@text 177c07e2d30da181dafeb6e7ffb1371f38f260a1dce94801531e1214e7626de5
+=50
+var J10_MOVES: Dictionary = _stored(J10_MOVE_IDS)
+
+@end
+@text 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+=29
+	"$J2_VERIFICATION|935a37e9"
+
+@end
+@text 1bd0a935c45398290b57303c4c3294c2861bc79257216f4772e83eca36e38c86
+=73
+	["res://tests/first_mvp_modal_left_click_verification.gd", "75f26486"],
+
+@end
+@text 1cc3a1951dc2e73ce8c707d5d5bac29304a8c6efd3469129e71dc5f2e935e04d
+=119
+	var source: String = _before_j5(SLICE_SCRIPT, _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)))
+
+@end
+@text 1d9b6c2ad22767ba206a8726ab13a1e21358b1ffb907ccd39e82225d59bc63d8
+=29
+	"$J4_VERIFICATION|15352d8a"
+
+@end
+@text 1efa4467622cde236fcbb22650a2c043e5041ab7b0044d16ba710b2e9ad01a34
+=31
+	"$THIS_VERIFICATION|aaa9e1d3"
+
+@end
+@text 1f61fb4f6e8a76aea3c1ea7a41363edfbd8dfc0a40218f1d01327eca1e5273cc
+=11
+D340_ROWS=(
+@end
+@text 20cf03c837cc9909c5505d9a42b01bd155f5fecc07dde5eb56d7f0f9b12ca4ca
+=325
+the D-339 entry (3.00, -33.00) lies inside Riftfall Landing's ONE authored boundary mass over Broken Watch — the Watch Breach far cap [P: (1.0, -34.0), S: (8.0, 4.0)] — which First-MVP Gameplay J11 (D-344) now opens in this composition, so a capsule there meets nothing tall and the navigation mesh lies 0.0000 m from it
+
+@end
+@text 217ed690688015d46a45cdbd655521aa4a3bf49ee6aa79bf0d3c5eb7afbeac04
+=73
+	["res://tests/first_mvp_modal_left_click_verification.gd", "d12ad271"],
+
+@end
+@text 219b1259211a294b98e20be72422799bd0295476fcd541eb9349e8a75b0755ff
+=425
+	## First-MVP Gameplay J10 (D-340) moved it again, from `942aee83`, so that a restart leaves the character
+	## standing at Broken Watch's entry. Same count.
+	## First-MVP Gameplay J11 (D-344) moved it again, from `883ef25e`, so that Riftfall Landing's Watch Breach
+	## far cap no longer seals the composed route into Broken Watch. Same count.
+	["res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd", "d4e839fb"],
+
+@end
+@text 236689b4726629880fad523fb8a2385c97d7829a4e0007cb76c1fc4c161d2261
+=50
+var VM1_MOVES: Dictionary = _stored(VM1_MOVE_IDS)
+
+@end
+@text 23a9c6c0576aa9fbfa9915640b16b4223381f91e571622036bee7dc2848bb076
+=31
+	"$THIS_VERIFICATION|bfab962c"
+
+@end
+@text 286b64c1820317b652d904e0d361ea9110ab9d89dd52601b84c3bfd12a63bade
+=73
+			and FileAccess.get_sha256(J2_VERIFICATION).begins_with(J10_J2_PREFIX)
+
+@end
+@text 2926384de6e52db2feabe9387a914f2495d8f73247ac79b57a4f841e1bc49a11
+=29
+	"$J1_VERIFICATION|d12ad271"
+
+@end
+@text 295e8e7e94da7e6c732a926dc3fb24c7374e50634c73f9398e821239fcc48617
+=72
+_before_j10(_before_j11(FileAccess.get_file_as_string(J2_VERIFICATION)))
+@end
+@text 29e6d2f3a093543353b29aff5c23f7b4dc20c2308944259ea0e9550dd0803323
+=120
+	var source: String = _before_j10(SLICE_SCRIPT, _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)))
+
+@end
+@text 2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a
+=29
+	"$J2_VERIFICATION|72e39a8a"
+
+@end
+@text 2e170d75b30f93b7e70c371aad4e8e6fd187a230abc785f947eade26325795c8
+=22
+	"$J5_SMOKE|6f792a38"
+
+@end
+@text 2ffba9791eab751d75020b89c3717cc7af572cb8732309936734f6bde1624d0d
+=29
+	"$J5_VERIFICATION|beb94aa0"
+
+@end
+@text 326557fbafb02b5cc8e1212c61fd06459bd4f7e89e536979944835aa1258589b
+=172
+	var source: String = _before_j5(SLICE_SCRIPT, _before_j9(SLICE_SCRIPT, _before_j10(SLICE_SCRIPT, _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)))))
+
+@end
+@text 353af4db1273e6ce2835b9e24b5282d5bbbcaee24028bc2c6984d889e389eddf
+=159
+		if not (FileAccess.get_sha256(path).begins_with(String(VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, row[1]))))))
+@end
+@text 373b4084a44f0f1eea8f55568900c8ce68feed70c785fa7f1edf3b163b3a0057
+=11
+D338_ROWS=(
+@end
+@text 3844aa3e11b9ccc511a40c296481d44c20dbad05dafd7fe1be2ad43ea9252f45
+=527
+
+# The slice with First-MVP Gameplay J11’s composition-local cap opening dropped (D-344), so that the
+# put-backs below read the slice their own decisions left. The block runs from its first comment line to its
+# log line, and the blank line that follows it goes with it.
+put_back_j11() {
+	awk -v first="$J11_FIRST" -v last="$J11_LAST" '
+		state == 0 && $0 == first { state = 1; next }
+		state == 1 { if ($0 == last) { state = 2 }; next }
+		state == 2 { state = 3; if ($0 == "") next }
+		{ print }' "$1"
+}
+
+leftover_count() {
+@end
+@text 393c09b5a641b277623ac7bd920f32d40654d187e69841d59f8d4e12194e4268
+=22
+	"$J6_SMOKE|be9f6f47"
+
+@end
+@text 3e3822adf7ccda8cca212678474b4080e1ebb37602057a858a8a23a3bb3a3420
+=168
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(J11_SLICE_PREFIX)
+			and slice_text.sha256_text().begins_with(J10_SLICE_PREFIX) and bool(slice_back["unique"])
+
+@end
+@text 3ed870a0dbdef97d8ab4840a574ee6118dd907d09094ff1ecd2e8f288e3f483c
+=106
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(J10_SLICE_PREFIX) and bool(slice_back["unique"])
+
+@end
+@text 3fc0677b888d8e5b7894726a0de1957499c90cdf775509e14a1ad9bdab867d82
+=11
+D334_ROWS=(
+@end
+@text 40d7fa885780d741078806a6aea16891e86614c56cc9fd15302122989e149977
+=85
+			% [slice_text.sha256_text().left(8), J10_SLICE_PREFIX, str(slice_back["unique"]),
+
+@end
+@text 417d9d9a79e418ac31af0c0ac12c7dbe11b645e2e4a32e3e2ee7113ed4eaa77b
+=182
+		if not (FileAccess.get_sha256(path).begins_with(String(VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, J7_PREFIXES.get(path, row[1])))))))
+@end
+@text 422c3ebebd2bfb40f3f21f73fd7d8698966a8abd658b3df490873436c907dd8a
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D330_ROWS=(
+@end
+@text 42f4db26ccb260ae06a9c02bef2c0c840f2d92386ef0cb4c9c056b5bbf921217
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D336_ROWS=(
+@end
+@text 43d845bf8ee593242cd80195e04ef5f0163d9cbae4a10f21d8f553eb352f22ec
+=192
+		if not (FileAccess.get_sha256(path).begins_with(String(J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, J7_PREFIXES.get(path, J6_PREFIXES.get(path, J5_PREFIXES[path])))))))
+@end
+@text 45d7216d52afb357bf1bc514d27667d4e167e2809a7ea35163d7f806b5143b48
+=37
+
+# The slice with J9's lines put back
+@end
+@text 4856179cb53a1955f882dc6e14561925641a56fc6862c79584412b3339f64148
+=160
+		if not (FileAccess.get_sha256(path).begins_with(String(J11_PREFIXES.get(path, VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, row[1]))))))
+@end
+@text 4b6d83ccec572f7be161410288ce8513d3de3783623bab869a57ebb4ba29490c
+=29
+	"$J7_VERIFICATION|bf92c1ec"
+
+@end
+@text 4d8bab710c25b579cdbef1e86c72b6badb682a3e02747571e6a81857e7fe2099
+=54
+_before_vm1(path, FileAccess.get_file_as_string(path))
+@end
+@text 52413669567a9d0ff352016fb6cb9a57efd383d28208f582b7b44622791c386f
+=19
+	"$SLICE|883ef25e"
+
+@end
+@text 53ea19720430680d9b59a7bd8b36c3aa58843b9e1e03f38dabb3d78c5cf9d446
+=93
+	var source: String = _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))
+
+@end
+@text 540e10caa41192591c5811221057ccd1401e2bc8121a8517d331ba35362e535c
+=22
+	"$J4_SMOKE|0fd60eb7"
+
+@end
+@text 553d7712972d7dda7069b31db868e173330406b436077b99af7d9b7f7e849dcd
+=354
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(String(J11_PREFIXES[SLICE_SCRIPT]))
+			and _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)).sha256_text().begins_with(String(J10_PREFIXES[SLICE_SCRIPT]))
+			and digest.begins_with(J9_SLICE_PREFIX) and bool(rebuilt["unique"]) and pre_text.sha256_text() == PRE_J9_SLICE_SHA256
+
+@end
+@text 56f7de3d0db5673b0dd365501b131b8cd62662ccb54fb5aa345f46570bded268
+=205
+		if not (FileAccess.get_sha256(path).begins_with(String(VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, J7_PREFIXES.get(path, J6_PREFIXES.get(path, row[1]))))))))
+@end
+@text 5954c5241e11e2c8d15aacdf22abeec8b86b2aaf6ee17b700e2cbf94ab663ca8
+=216
+		if not (FileAccess.get_sha256(path).begins_with(String(J11_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, J7_PREFIXES.get(path, J6_PREFIXES.get(path, J5_PREFIXES[path]))))))))
+@end
+@text 5a40a3198da67c668ad5c6d1ac3f3d4442e23cb58357ca3d2b78bb29b37e7b95
+=243
+entry() now answers local (3.00, -34.75): the same capsule there meets only ground plates, the navigation mesh lies 0.0000 m from it, and a path from Riftfall Landing's player start reaches it in 39 points and 60.50 m, ending 0.0000 m from it
+
+@end
+@text 5b5d5c4d968e4c9fc5885ee44c317eb43eaa76cbd2c243f5f2764d39a4f1ccb7
+=112
+rebuilt="$(put_back_j11 "$PROJECT_DIR/$SLICE" | put_back_j10 - | put_back_j9 - | shasum -a 256 | cut -d' ' -f1)"
+@end
+@text 5d7014e4073cce23fddc9be53775023ea22323c192d3a3b112179232440fd564
+=22
+	"$J7_SMOKE|64a84a9d"
+
+@end
+@text 5dec7d4790410cec7c0dd4dbfcbc6fc49948bfd5d9e7b32b9046c987bf6a7ed3
+=31
+	"$THIS_VERIFICATION|1588cff8"
+
+@end
+@text 5ead413cc8449ba4710a7967b495263fc9a382f20d19c12c7008c3097dc7d9bd
+=406
+	print("  the D-339 entry (%.2f, %.2f) lies inside Riftfall Landing's ONE authored boundary mass over Broken Watch — the Watch Breach far cap %s — which First-MVP Gameplay J11 (D-344) now opens in this composition, so a capsule there meets nothing tall and the navigation mesh lies %.4f m from it"
+		% [PRE_J10_ENTRY_LOCAL.x, PRE_J10_ENTRY_LOCAL.y, str(authored_cap), float(_geometry["old_nav_gap"])])
+
+@end
+@text 61ebae979ff1837b6c5d15270755000318de52c25c8299874e429cd4c4c5f1c6
+=22
+	"$J8_SMOKE|95506b40"
+
+@end
+@text 66186e92496c76a747ca50299532c2ce29862b24ac354d20c10e769ef4df6069
+=136
+		if not (FileAccess.get_sha256(path).begins_with(String(VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, row[1])))))
+@end
+@text 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+=22
+	"$J3_SMOKE|9a860bca"
+
+@end
+@text 68af1bd4dd2f845d89edebee52381f4c2e19809152180206d5f1e821cac78f41
+=145
+	var source: String = _before_j5(SLICE_SCRIPT, _before_j9(SLICE_SCRIPT, _before_j10(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))))
+
+@end
+@text 6b768543bc200bbbc5d08891fe2d84ca8e99f2f04803f74393446159f4f7b676
+=125
+		if not (FileAccess.get_sha256(path).begins_with(String(J11_PREFIXES.get(path, VM1_PREFIXES.get(path, J10_PREFIXES[path]))))
+@end
+@text 6cec77746d715826de96c51939e3243f924ac91722ea4422ab273b5425cfea4b
+=43
+
+# The slice with J10's three lines dropped
+@end
+@text 6cf1bb0a2a51879931576dfba3d9c1337dfe260dd629828e8cf5d89816683082
+=31
+	"$THIS_VERIFICATION|e526397b"
+
+@end
+@text 7080c04a76f1aa5c8769e49891dbfb508c043c3636e8fa74091ad3473c59de04
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D328_ROWS=(
+@end
+@text 709c3457b47ae5923c86fdabf4495a918e537628126f34de391c32db7b96b8be
+=29
+	"$J8_VERIFICATION|2ca75553"
+
+@end
+@text 72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684
+=29
+	"$J3_VERIFICATION|7d0e3f08"
+
+@end
+@text 768487cfb8c5e7eca84b0317732602e399776f91404c3bb207b6ae4aad43b0e4
+=29
+	"$J9_VERIFICATION|e526397b"
+
+@end
+@text 77be6144db7c4dad6040eacc543e8a622a7123dc6d941165638fc9bf811ea4f3
+=94
+EXPECTED_PRODUCTION_DIGEST="b710ab1fe73e6330b8564de8b3ffb909a306ddd2387966ad0f69bfc39c0d61e4"
+
+@end
+@text 79fdcb532e16ba87791f56bc6d0b29b136d077d884723b3361a9b01aa5c22d64
+=196
+a capsule the player's size at the D-339 entry meets Riftfall Landing's own WorldCollision box (8.0, 3.6, 4.0) — the Watch Breach far cap — and the navigation mesh lies 1.55 m from that point
+
+@end
+@text 7ac91618ce1b7776f9a2d766395972bed29614a9762e0e2a93867697b974fe47
+=73
+_before_vm1(path, _before_j11(path, FileAccess.get_file_as_string(path)))
+@end
+@text 7bef262d4af8bdcc9d47fdcb740270ddcfa8e313a675213742e51f99c91dc586
+=139
+			and _before_j10(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)).sha256_text().begins_with(String(J9_PREFIXES[SLICE_SCRIPT]))
+
+@end
+@text 7c47023c09f1ef3b4b6bcaccb19f206079681f6227d014f2a6cef3708d6aa29e
+=244
+	print("  a capsule the player's size at the D-339 entry meets Riftfall Landing's own WorldCollision box (8.0, 3.6, 4.0) — the Watch Breach far cap — and the navigation mesh lies %.2f m from that point"
+		% float(_geometry["old_nav_gap"]))
+
+@end
+@text 7fe5ee88c4192dff18366fd7f0c7e1574ece6289111df638607b53b521d7a45d
+=1534
+	# First-MVP Gameplay J11 (decision D-344) opens Riftfall Landing's Watch Breach far cap IN THIS
+	# COMPOSITION, and that cap is the very solid this check used to find the D-339 socket inside. The
+	# measurement read the running world rather than a file, so no put-back can restore it. What J10
+	# proved is asserted where it is still true: the cap is the ONE Landing boundary mass authored over
+	# Broken Watch's rooms, the D-339 socket lies inside its footprint, and the slice removes exactly it
+	# — so a capsule at that socket now meets nothing tall and the mesh reaches it. J10's own fix, the
+	# moved socket, is asserted unchanged below.
+	var authored_cap: Rect2 = Rect2()
+	var authored_over_broken_watch: int = 0
+	for mass: Dictionary in RiftfallLandingGreyboxLayout.BOUNDARY_MASSES:
+		var rect: Rect2 = mass["rect"]
+		for room: Rect2 in BrokenWatchLayout.WALKABLE:
+			if rect.intersects(room):
+				authored_cap = rect
+				authored_over_broken_watch += 1
+				break
+	_expect(authored_over_broken_watch == 1 and authored_cap == Rect2(Vector2(1.0, -34.0), Vector2(8.0, 4.0))
+			and authored_cap.has_point(PRE_J10_ENTRY_LOCAL) and old_tall.is_empty()
+			and float(_geometry["old_nav_gap"]) <= STABLE_METRES,
+		"%d Landing boundary mass(es) stand over Broken Watch; the cap is %s and holds the D-339 entry: %s; a capsule at that entry meets %s and the mesh lies %.4f m from it"
+			% [authored_over_broken_watch, str(authored_cap), str(authored_cap.has_point(PRE_J10_ENTRY_LOCAL)), str(old_tall), float(_geometry["old_nav_gap"])])
+
+@end
+@text 808731d93d8bf93d16a109701a2e46a0fcf0979dff48d523125c4059249dc844
+=376
+func _before_j10(text: String) -> String:
+	for pair: Array in J10_MOVES:
+		text = text.replace(String(pair[0]), String(pair[1]))
+	return text
+
+
+## Puts a file First-MVP Gameplay J11 (decision D-344) moved back to where D-343 left it.
+func _before_j11(text: String) -> String:
+	for pair: Array in J11_MOVES:
+		text = text.replace(String(pair[0]), String(pair[1]))
+	return text
+
+@end
+@text 81e895e1c2823181225e51e6b05193192ab7357a2cc1151aab463dc98be283dd
+=1999
+var VM1_MOVES: Dictionary = _stored(VM1_MOVE_IDS)
+
+## First-MVP Gameplay J11 (D-344) moved Gate 1D's slice and the accepted suite files above again, one for one,
+## when the slice came to open Riftfall Landing's Watch Breach far cap in this composition. Each is first put
+## back to where D-343 left it and then read exactly as before: `J11_PREFIXES` holds each file's J11 prefix, and
+## `J11_MOVES` its pairs of [as J11 wrote it, as D-343 left it], named in `J11_MOVE_IDS` and applied to that file
+## alone.
+const J11_PREFIXES: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "d4e839fb",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "d12ad271",
+	"res://tests/fallen_modal_life_state_verification.gd": "72e39a8a",
+	"res://tests/pending_fallen_restart_verification.gd": "7d0e3f08",
+	"res://tests/pending_fallen_restart_smoke.sh": "54a4464a",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "8aad4262",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "939d9b48",
+}
+const J11_MOVE_IDS: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "f0f7cf747a8cc738a5e9477ea2028e6d863d9d83d3cc6799d39032a0275db868",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/fallen_modal_life_state_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/pending_fallen_restart_verification.gd": "eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2",
+	"res://tests/pending_fallen_restart_smoke.sh": "a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b",
+}
+var J11_MOVES: Dictionary = _stored(J11_MOVE_IDS)
+
+@end
+@text 82198afc5e8ebf88c01022a70b7ea921140c30d765bd36c2ed108eb28fe0f72d
+=97
+	var slice_text: String = _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))
+
+@end
+@text 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+=34
+		rows.append(empty)
+	return rows
+
+@end
+@text 83fe665ea40042784ea30cafa8ed212683d52804f85c0de811f8d6ca6d19bcbd
+=206
+		if not (FileAccess.get_sha256(path).begins_with(String(J11_PREFIXES.get(path, VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, J7_PREFIXES.get(path, row[1]))))))))
+@end
+@text 845e74586547603e714efb2b810f3a45caabd7a1943fcf9c6ec83faf02f9c827
+=31
+	"$THIS_VERIFICATION|bf25715a"
+
+@end
+@text 855ace3b6845fb3e6a7d65af11cb5e91b93215c9a7bf8ee877f9fce40f58f334
+=59
+_before_j10(FileAccess.get_file_as_string(J2_VERIFICATION))
+@end
+@text 8630a2b2166b37ed357bf4bea454992b1e3a95939e20be4290895c7dd4ac2e6e
+=129
+		% [FileAccess.get_sha256(SLICE_SCRIPT).left(8), slice_text.count("\n"), PRE_J10_SLICE_SHA256.left(8), slice_then.count("\n")])
+
+@end
+@text 86376800622bbc621c3fa26f845ed5dc07c8b30f5926cf8dfea308d9bebbd599
+=22
+	"$J4_SMOKE|939d9b48"
+
+@end
+@text 88b18dd29a37de37693d6e2b19fd6699d498e290b89580f166b7d21bb1b05358
+=29
+	"$J4_VERIFICATION|8aad4262"
+
+@end
+@text 8966649a6ee0bfa3d49d0fae92faf790a682be8e2ccf07917acda61a7b66dc35
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D340_ROWS=(
+@end
+@text 8a29cca36591c35117bc6dbb52602c2434ec88167b1770f26b263d8523b12814
+=81
+rebuilt="$(put_back_slice "$PROJECT_DIR/$SLICE" | shasum -a 256 | cut -d' ' -f1)"
+@end
+@text 8b45fa67409483ff74d61bf5cebb8edb72e50a5044b5aa113c3194a40ba467f8
+=22
+	"$J9_SMOKE|22544403"
+
+@end
+@text 8b5b96f6329a306cef0b3a05e6e64a055caecf3b42ee7849b5afee0e3d66bf3a
+=19
+	"$SLICE|d4e839fb"
+
+@end
+@text 8bf93b08fe42662622faa7922c320a40f500cb8435832c2b4bd6132b3bf2fdb1
+=2759
+var VM1_MOVES: Dictionary = _stored(VM1_MOVE_IDS)
+
+## First-MVP Gameplay J11 (D-344) moved Gate 1D's slice and the accepted suite files above again, one for one,
+## when the slice came to open Riftfall Landing's Watch Breach far cap in this composition. Each is first put
+## back to where D-343 left it and then read exactly as before: `J11_PREFIXES` holds each file's J11 prefix, and
+## `J11_MOVES` its pairs of [as J11 wrote it, as D-343 left it], named in `J11_MOVE_IDS` and applied to that file
+## alone.
+const J11_PREFIXES: Dictionary = {
+	"res://tests/fallen_modal_life_state_verification.gd": "72e39a8a",
+	"res://tests/pending_fallen_restart_verification.gd": "7d0e3f08",
+	"res://tests/pending_fallen_restart_smoke.sh": "54a4464a",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "8aad4262",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "939d9b48",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "beb94aa0",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "6f792a38",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "8c653002",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "51d64a23",
+	"res://tests/enemy_hover_life_fractional_fill_verification.gd": "bf92c1ec",
+	"res://tests/enemy_hover_life_fractional_fill_smoke.sh": "64a84a9d",
+}
+const J11_MOVE_IDS: Dictionary = {
+	"res://tests/fallen_modal_life_state_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/pending_fallen_restart_verification.gd": "eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2",
+	"res://tests/pending_fallen_restart_smoke.sh": "a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "93e92c6cdfd494daf85285c7abaa06f5229b1bea0e7e4de67d3b6f02f253f182",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "a0d7525a31de8048a66815277d6eb7c67b76dc6d90bbfe2eccb519057cd525fa",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "fd86747b7f850c99c998632fb24898b79daa9dd06b2a9e199331a1162a6e40a6",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "ca348c34762f8640fa88bf6629f35c15aaaa7b9a495972800d4dcd94d4074845",
+	"res://tests/enemy_hover_life_fractional_fill_verification.gd": "bf9b61b11d9e56be4dff793b83d133f56bcdcf4ffdd8db0cc2ee5e8de0715d5a",
+	"res://tests/enemy_hover_life_fractional_fill_smoke.sh": "abb783d1bb48944f378110a2d21d02ba0f6367ad5958c99b4f6de19cbeb49188",
+}
+var J11_MOVES: Dictionary = _stored(J11_MOVE_IDS)
+
+@end
+@text 8c3f3d50af0a24e9a83eef54f67e8b7a71aa4046e9593fef807835df7ed38f30
+=29
+	"$J6_VERIFICATION|d23c5fdc"
+
+@end
+@text 8fdec2637528c361aa9276a858c5a0258b4d8bee2b00bbbd8c3de9b069372f95
+=98
+rebuilt="$(put_back_j11 "$PROJECT_DIR/$SLICE" | put_back_slice - | shasum -a 256 | cut -d' ' -f1)"
+@end
+@text 907896bbe6bcda374fdfb28a190b923a0d0ea0a8c95bb049435cf1033598ec2c
+=113
+		if not (FileAccess.get_sha256(path).begins_with(String(J11_PREFIXES.get(path, VM1_PREFIXES.get(path, row[1]))))
+@end
+@text 90ecc55a0eca2cf86fe095be75b4f30d029d30ae306cc84e1c2c7389477d705f
+=72
+_before_j10(_before_j11(FileAccess.get_file_as_string(J1_VERIFICATION)))
+@end
+@text 925b25867e611a06834870e735761ea4a373259a8409289215e78cc5224de25d
+=75
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(J10_SLICE_PREFIX)
+
+@end
+@text 94db35b7292538f72b3977e3f18100561fd6bafd9c0d13c0a74678e059c3f928
+=22
+	"$J6_SMOKE|51d64a23"
+
+@end
+@text 96e219f3413dd4b93aeb750f56440c17e4c9fe427064d02662afea6123eff1e4
+=29
+	"$J5_VERIFICATION|6204a260"
+
+@end
+@text 97268f698404ed70099f3189dfd5cc70d6d66a45c7073314e0d4388bbb6d4acf
+=146
+	var source: String = _before_j9(SLICE_SCRIPT, _before_j10(SLICE_SCRIPT, _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))))
+
+@end
+@text 9bc5baf20e9ccaaf38f159f6c9c119df17367058b489e21d7c9d439ce05a55bb
+=22
+	"$J9_SMOKE|94b5e6c9"
+
+@end
+@text 9d09420919265cd227489587e6a895943fc63035bde72c3bcc1fec4e0e1bc5ef
+=96
+			% [FileAccess.get_sha256(SLICE_SCRIPT).left(8), J10_SLICE_PREFIX, str(slice_back["unique"]),
+
+@end
+@text 9eda3645d563f9171f3bf7e834b85b34df6ea3210bfedaced0a150f4a8b9d33b
+=93
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(String(J10_PREFIXES[SLICE_SCRIPT]))
+
+@end
+@text a19f3aef887f7011e2fe90b5519423fe0c26d302c8061053b4630856f44e56f8
+=19
+
+leftover_count() {
+@end
+@text a3241c04c67cbd685cc663ceae834e4cbdbb071d1a298c1161c8369027426004
+=89
+		if not (FileAccess.get_sha256(path).begins_with(String(VM1_PREFIXES.get(path, row[1])))
+@end
+@text a57e32a5b46855efc3c4d488379fe6ffd7c6784a7c62e60f7b1f56f10fc13d1e
+=101
+		if not (FileAccess.get_sha256(path).begins_with(String(VM1_PREFIXES.get(path, J10_PREFIXES[path])))
+@end
+@text a5e2d5e7614568c543968dbafb5eee8106de91c4a086c8f3813d810516fb801a
+=142
+func _before_j10(text: String) -> String:
+	for pair: Array in J10_MOVES:
+		text = text.replace(String(pair[0]), String(pair[1]))
+	return text
+
+@end
+@text a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+=29
+	"$J3_VERIFICATION|53c37976"
+
+@end
+@text a5fb925c32d907cd39fddbce9ac795f7bc6b8bd40ab45c15aa1f6ef8891121d3
+=1971
+var VM1_MOVES: Dictionary = _stored(VM1_MOVE_IDS)
+
+## First-MVP Gameplay J11 (D-344) moved Gate 1D's slice and the accepted suite files above again, one for one,
+## when the slice came to open Riftfall Landing's Watch Breach far cap in this composition. Each is first put
+## back to where D-343 left it and then read exactly as before: `J11_PREFIXES` holds each file's J11 prefix, and
+## `J11_MOVES` its pairs of [as J11 wrote it, as D-343 left it], named in `J11_MOVE_IDS` and applied to that file
+## alone.
+const J11_PREFIXES: Dictionary = {
+	"res://tests/fallen_modal_life_state_verification.gd": "72e39a8a",
+	"res://tests/pending_fallen_restart_verification.gd": "7d0e3f08",
+	"res://tests/pending_fallen_restart_smoke.sh": "54a4464a",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "8aad4262",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "939d9b48",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "beb94aa0",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "6f792a38",
+}
+const J11_MOVE_IDS: Dictionary = {
+	"res://tests/fallen_modal_life_state_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/pending_fallen_restart_verification.gd": "eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2",
+	"res://tests/pending_fallen_restart_smoke.sh": "a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "93e92c6cdfd494daf85285c7abaa06f5229b1bea0e7e4de67d3b6f02f253f182",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "a0d7525a31de8048a66815277d6eb7c67b76dc6d90bbfe2eccb519057cd525fa",
+}
+var J11_MOVES: Dictionary = _stored(J11_MOVE_IDS)
+
+@end
+@text a8d753e856e448c865946bba3b5f057bcf127262d6f9e9e6cf8c3b0cbb8cc07e
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D326_ROWS=(
+@end
+@text a95c648337b989336d0bd69043c77d0b4f86a4997d0b2ed34195346ff4199e4a
+=56
+_before_j10(FileAccess.get_file_as_string(SLICE_SCRIPT))
+@end
+@text a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62
+=296
+		rows.append(empty)
+	return rows
+
+
+## Puts a file First-MVP Gameplay J11 (decision D-344) moved back to where D-343 left it.
+func _before_j11(path: String, text: String) -> String:
+	for pair: Array in J11_MOVES.get(path, []):
+		text = text.replace(String(pair[0]), String(pair[1]))
+	return text
+
+@end
+@text aa147d361025ca950433131e71edbf131d84b8fa79e4f69bd8a16fe617c321d2
+=75
+	_expect(FileAccess.get_sha256(J1_VERIFICATION).begins_with(J10_J1_PREFIX)
+
+@end
+@text aa8ed081ea29bc0928a5f8e80159e2af7971e60140e922f93afa70c1047415a8
+=229
+		if not (FileAccess.get_sha256(path).begins_with(String(J11_PREFIXES.get(path, VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, J7_PREFIXES.get(path, J6_PREFIXES.get(path, row[1])))))))))
+@end
+@text abcba527fc3efecfc419fbc3ccc153cb1eccdcbb7a75c3b9dbcb98e1a1272c7b
+=165
+			and _before_j9(SLICE_SCRIPT, _before_j10(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))).sha256_text().begins_with(String(J5_PREFIXES[SLICE_SCRIPT]))
+
+@end
+@text b1b1d7ccaff472179acffa8e13748546687b1ae0b370efdac8baed263cccfd1e
+=29
+	"$J6_VERIFICATION|8c653002"
+
+@end
+@text b2ec01e4acbbb73ad970f83df7d481f54238765504498b8ea8877a29c7e1d5fd
+=59
+_before_j10(FileAccess.get_file_as_string(J1_VERIFICATION))
+@end
+@text b623732a5ba9919fd3d39814a27c2f66cc760bc9e34435aaab6f7f1084cf9300
+=239
+const J10_SLICE_PREFIX: String = "883ef25e"
+## First-MVP Gameplay J11 (D-344) moved the slice again, so the LIVE file is at this prefix and J10's own
+## state is reached through `_before_j11()`.
+const J11_SLICE_PREFIX: String = "d4e839fb"
+
+@end
+@text b95ac159afbf8c500bd6da9c3f44c42f4d2f588f4c12480f7aec70aaedd669f9
+=22
+	"$J8_SMOKE|f562e165"
+
+@end
+@text bad5ce90261fde1f5f84d3df6030c630311fe9d6ac72a79d66a8159374e9b969
+=11
+D332_ROWS=(
+@end
+@text bb4dfdfaea56b25ed116987c0704a08a79a66e1351d4ac5d873867b8ffa810d5
+=166
+			and _before_j10(SLICE_SCRIPT, _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))).sha256_text().begins_with(String(J9_PREFIXES[SLICE_SCRIPT]))
+
+@end
+@text bcb7b0e3a123594d284814526a3e088fa6b3710f41c3f269fdd936149f3b8c16
+=29
+	"$J8_VERIFICATION|bfab962c"
+
+@end
+@text bf63c63dafc50a358bb57c51ec616680ff6f70cf446b08baf0b737a1e8ff342e
+=121
+rebuilt_moved="$({ put_back_j11 "$PROJECT_DIR/$SLICE" | put_back_slice -; printf 'x'; } | shasum -a 256 | cut -d' ' -f1)"
+@end
+@text c1cadfcfd4c077821d87f595202f6b7b1b46cb2913bd69e5dfae580b42c098e0
+=233
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(String(J11_PREFIXES[SLICE_SCRIPT]))
+			and _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)).sha256_text().begins_with(String(J10_PREFIXES[SLICE_SCRIPT]))
+
+@end
+@text c3dc992b0a7470fc52e6e49a28cc20bbd83637bc17cadf2da807f9f7aa29f476
+=2353
+var VM1_MOVES: Dictionary = _stored(VM1_MOVE_IDS)
+
+## First-MVP Gameplay J11 (D-344) moved Gate 1D's slice and the accepted suite files above again, one for one,
+## when the slice came to open Riftfall Landing's Watch Breach far cap in this composition. Each is first put
+## back to where D-343 left it and then read exactly as before: `J11_PREFIXES` holds each file's J11 prefix, and
+## `J11_MOVES` its pairs of [as J11 wrote it, as D-343 left it], named in `J11_MOVE_IDS` and applied to that file
+## alone.
+const J11_PREFIXES: Dictionary = {
+	"res://tests/fallen_modal_life_state_verification.gd": "72e39a8a",
+	"res://tests/pending_fallen_restart_verification.gd": "7d0e3f08",
+	"res://tests/pending_fallen_restart_smoke.sh": "54a4464a",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "8aad4262",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "939d9b48",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "beb94aa0",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "6f792a38",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "8c653002",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "51d64a23",
+}
+const J11_MOVE_IDS: Dictionary = {
+	"res://tests/fallen_modal_life_state_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/pending_fallen_restart_verification.gd": "eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2",
+	"res://tests/pending_fallen_restart_smoke.sh": "a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "93e92c6cdfd494daf85285c7abaa06f5229b1bea0e7e4de67d3b6f02f253f182",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "a0d7525a31de8048a66815277d6eb7c67b76dc6d90bbfe2eccb519057cd525fa",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "fd86747b7f850c99c998632fb24898b79daa9dd06b2a9e199331a1162a6e40a6",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "ca348c34762f8640fa88bf6629f35c15aaaa7b9a495972800d4dcd94d4074845",
+}
+var J11_MOVES: Dictionary = _stored(J11_MOVE_IDS)
+
+@end
+@text c3ecbd0a576af8da53dc646fd258e9346b2ff2228a6c171bb87e76dae0827463
+=22
+	"$J5_SMOKE|08aa2d0b"
+
+@end
+@text c54564001fe7ad27c1c551c4c4f5f11e4b6de138731ab2a8e8472c99afada2ac
+=11
+D326_ROWS=(
+@end
+@text c7110cd24625e138802cf3afa7de5eb31fd39c20813411196b420be48053a2cd
+=92
+	var source: String = _before_j5(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))
+
+@end
+@text c834d1f0219077e215e46a98b5792e8f6daff581c8165cf1c1cdd224d9473f6b
+=183
+		if not (FileAccess.get_sha256(path).begins_with(String(J11_PREFIXES.get(path, VM1_PREFIXES.get(path, J10_PREFIXES.get(path, J9_PREFIXES.get(path, J8_PREFIXES.get(path, row[1])))))))
+@end
+@text c8a476eaa93a3b5b3822e2f1037ff552ffe66c3584b9663e9f090d0a56be0f76
+=22
+	"$J7_SMOKE|85a49a22"
+
+@end
+@text cb0799a68560b44baadd7fba7bb1513fa24432c7dba2399c415baa3c4e3e714e
+=70
+	var slice_text: String = FileAccess.get_file_as_string(SLICE_SCRIPT)
+
+@end
+@text cdb9009402f2d2ef8363ba629e8766564416d4169032b7f8df0a385db3774408
+=293
+	_expect(old_tall.size() == 1 and old_tall[0].contains("/Landing/WorldCollision") and old_tall[0].contains("(8.0, 3.6, 4.0)")
+			and float(_geometry["old_nav_gap"]) > 1.0,
+		"the D-339 entry's capsule meets %s; the mesh lies %.4f m from it" % [str(old_tall), float(_geometry["old_nav_gap"])])
+
+@end
+@text ce5a53fdb4921b1c7c43dec2f678f54733c90db26ee16aeadcb0fe342f133224
+=4454
+
+## First-MVP Gameplay J11 (D-344) moved the slice, J1 and J2 again, one for one: the slice opens Riftfall
+## Landing's Watch Breach far cap in its own composition, and J1's and J2's slice rows gained a comment and a
+## new hash. Each is first put back to where D-343 left it and then read exactly as before. Each pair is [as J11
+## wrote it, as D-343 left it]. J3 still carries its pairs INLINE under D-343 ruling 5: its three targets — the
+## slice, J1 and J2 — hold no reconstruction data of their own, so nothing written here can nest.
+const J11_SLICE_PREFIX: String = "d4e839fb"
+const J11_J1_PREFIX: String = "d12ad271"
+const J11_J2_PREFIX: String = "72e39a8a"
+const J11_MOVES: Array = [
+	["\t# First-MVP Gameplay J11 (decision D-344): RIFTFALL LANDING CLOSED ITS OWN FAR END,\n\t# AND THAT CLOSURE IS FALSE IN THIS COMPOSITION. The Landing's accepted Greybox V2\n\t# ends in a tall boundary mass its own source calls \"the far cap beyond the landing,\n\t# so the space closes rather than trailing into open void\" -- exactly right for a\n\t# Landing that ends there, and a solid standing inside Broken Watch's Watch Threshold\n\t# here, because the two layouts are siblings in one shared local frame. On the route's\n\t# own centreline it stopped a player-sized body outright and the navigation mesh\n\t# carried no surface at all, so the seam was passable only by a detour the design\n\t# never drew. It is removed from THIS instance, before the bake, exactly as\n\t# `CanonicalOpeningRuntime` removes Broken Watch's own far cap toward the Nexus\n\t# Threshold: `riftfall_landing_greybox_layout.gd` is untouched, and the standalone\n\t# Landing review still builds the cap, because a Landing that ends there needs it.\n\t#\n\t# THE CAP IS FOUND FROM AUTHORED STRUCTURAL DATA, NOT FROM A NODE NAME: it is the only\n\t# Riftfall Landing boundary mass whose footprint overlaps a Broken Watch walkable\n\t# rectangle -- the defect itself, written as a predicate over both layouts' own\n\t# constants. Exactly one must qualify, and exactly its three built nodes must go: the\n\t# visual, the collision shape and the navigation carve. Anything else is a real change\n\t# to one of the two layouts, and it must fail loudly rather than quietly reseal the\n\t# route or quietly take more of the Landing down with it.\n\tvar landing_caps: Array[Rect2] = []\n\tfor mass: Dictionary in RiftfallLandingGreyboxLayout.BOUNDARY_MASSES:\n\t\tvar rect: Rect2 = mass[\"rect\"]\n\t\tfor room: Rect2 in BrokenWatchLayout.WALKABLE:\n\t\t\tif rect.intersects(room):\n\t\t\t\tlanding_caps.append(rect)\n\t\t\t\tbreak\n\tvar cap_nodes_removed: int = 0\n\tfor rect: Rect2 in landing_caps:\n\t\tvar stem: String = \"Boundary_%d_%d\" % [int(rect.position.x * 10.0), int(rect.position.y * 10.0)]\n\t\tfor built: String in [\"Visuals/%s\" % stem, \"WorldCollision/%s\" % stem,\n\t\t\t\t\"NavigationObstacles/%sCarve\" % stem]:\n\t\t\tvar node: Node = landing_layout.get_node_or_null(built)\n\t\t\tif node != null:\n\t\t\t\tnode.free()\n\t\t\t\tcap_nodes_removed += 1\n\tvar cap_fault: String = \"BrokenWatchSlice: expected exactly 1 Riftfall Landing far cap overlapping Broken Watch and its 3 built nodes, found %d and %d\" % [landing_caps.size(), cap_nodes_removed]\n\tif landing_caps.size() != 1 or cap_nodes_removed != 3:\n\t\t# `assert()` is stripped in release builds; `push_error()` is not, so both are used.\n\t\tpush_error(cap_fault)\n\tassert(landing_caps.size() == 1 and cap_nodes_removed == 3, cap_fault)\n\tlog_event(\"landing cap opened\", \"%d Riftfall Landing boundary mass overlaps Broken Watch; its %d built nodes are removed in THIS composition, before the bake\" % [landing_caps.size(), cap_nodes_removed])\n\n",
+		""],
+	["\t## First-MVP Gameplay J10 (D-340) moved it again, from `942aee83`, so that a restart leaves the character\n\t## standing at Broken Watch's entry. Same count.\n\t## First-MVP Gameplay J11 (D-344) moved it again, from `883ef25e`, so that Riftfall Landing's Watch Breach\n\t## far cap no longer seals the composed route into Broken Watch. Same count.\n\t[\"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd\", \"d4e839fb\"],\n",
+		"\t## First-MVP Gameplay J10 (D-340) moved it again, from `942aee83`, so that a restart leaves the character\n\t## standing at Broken Watch's entry. Same count.\n\t[\"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd\", \"883ef25e\"],\n"],
+]
+
+## Everything J3 stands beside
+@end
+@text cf19c037b7e4a50c98543e15ca91411ff76c25152f78afb8a7c92bb436e3c124
+=54
+_before_j10(path, FileAccess.get_file_as_string(path))
+@end
+@text d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514
+=22
+	"$J3_SMOKE|54a4464a"
+
+@end
+@text d832eec34a2d46c2e104c6201766b800c7f3c64d8e50d2e3063a2ecb3e5484a7
+=2880
+	# First-MVP Gameplay J11 (decision D-344): RIFTFALL LANDING CLOSED ITS OWN FAR END,
+	# AND THAT CLOSURE IS FALSE IN THIS COMPOSITION. The Landing's accepted Greybox V2
+	# ends in a tall boundary mass its own source calls "the far cap beyond the landing,
+	# so the space closes rather than trailing into open void" -- exactly right for a
+	# Landing that ends there, and a solid standing inside Broken Watch's Watch Threshold
+	# here, because the two layouts are siblings in one shared local frame. On the route's
+	# own centreline it stopped a player-sized body outright and the navigation mesh
+	# carried no surface at all, so the seam was passable only by a detour the design
+	# never drew. It is removed from THIS instance, before the bake, exactly as
+	# `CanonicalOpeningRuntime` removes Broken Watch's own far cap toward the Nexus
+	# Threshold: `riftfall_landing_greybox_layout.gd` is untouched, and the standalone
+	# Landing review still builds the cap, because a Landing that ends there needs it.
+	#
+	# THE CAP IS FOUND FROM AUTHORED STRUCTURAL DATA, NOT FROM A NODE NAME: it is the only
+	# Riftfall Landing boundary mass whose footprint overlaps a Broken Watch walkable
+	# rectangle -- the defect itself, written as a predicate over both layouts' own
+	# constants. Exactly one must qualify, and exactly its three built nodes must go: the
+	# visual, the collision shape and the navigation carve. Anything else is a real change
+	# to one of the two layouts, and it must fail loudly rather than quietly reseal the
+	# route or quietly take more of the Landing down with it.
+	var landing_caps: Array[Rect2] = []
+	for mass: Dictionary in RiftfallLandingGreyboxLayout.BOUNDARY_MASSES:
+		var rect: Rect2 = mass["rect"]
+		for room: Rect2 in BrokenWatchLayout.WALKABLE:
+			if rect.intersects(room):
+				landing_caps.append(rect)
+				break
+	var cap_nodes_removed: int = 0
+	for rect: Rect2 in landing_caps:
+		var stem: String = "Boundary_%d_%d" % [int(rect.position.x * 10.0), int(rect.position.y * 10.0)]
+		for built: String in ["Visuals/%s" % stem, "WorldCollision/%s" % stem,
+				"NavigationObstacles/%sCarve" % stem]:
+			var node: Node = landing_layout.get_node_or_null(built)
+			if node != null:
+				node.free()
+				cap_nodes_removed += 1
+	var cap_fault: String = "BrokenWatchSlice: expected exactly 1 Riftfall Landing far cap overlapping Broken Watch and its 3 built nodes, found %d and %d" % [landing_caps.size(), cap_nodes_removed]
+	if landing_caps.size() != 1 or cap_nodes_removed != 3:
+		# `assert()` is stripped in release builds; `push_error()` is not, so both are used.
+		push_error(cap_fault)
+	assert(landing_caps.size() == 1 and cap_nodes_removed == 3, cap_fault)
+	log_event("landing cap opened", "%d Riftfall Landing boundary mass overlaps Broken Watch; its %d built nodes are removed in THIS composition, before the bake" % [landing_caps.size(), cap_nodes_removed])
+
+
+@end
+@text e2942cc44196c104514e0dad2a0042fcbb6482244af62b866b1e32233c5bdbf4
+=192
+			and _before_j9(SLICE_SCRIPT, _before_j10(SLICE_SCRIPT, _before_j11(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT)))).sha256_text().begins_with(String(J5_PREFIXES[SLICE_SCRIPT]))
+
+@end
+@text e4e9998bce94f02d2bcf907ff9536a99e0ba39a4a172a741771db248993b02bc
+=94
+EXPECTED_PRODUCTION_DIGEST="a0ebf533f12f953fab4fa29a594708a1577ec55cff50ab56a6f31bdfbb011d48"
+
+@end
+@text e52f832bad2024b5b323dff6c29e48c6cc407a155519ba6cf9364ad50a1cc55c
+=93
+	var source: String = _before_j10(SLICE_SCRIPT, FileAccess.get_file_as_string(SLICE_SCRIPT))
+
+@end
+@text e8de5bba0ae76b947aeaf220ee59c83f071b155b43df4872d7ad3618ba6a022a
+=118
+		% [slice_text.sha256_text().left(8), slice_text.count("\n"), PRE_J10_SLICE_SHA256.left(8), slice_then.count("\n")])
+
+@end
+@text ea33568424f7c112d48777e4f4b2014a1a0c25c8c0e3c1720a1b7a7470d8a739
+=69
+_before_j10(_before_j11(FileAccess.get_file_as_string(SLICE_SCRIPT)))
+@end
+@text ebc5a4cd91e1d3d09b070f06f08d1b910fedbbbd1680c79ba407b44a9bb857e9
+=3579
+var VM1_MOVES: Dictionary = _stored(VM1_MOVE_IDS)
+
+## First-MVP Gameplay J11 (D-344) moved Gate 1D's slice and the accepted suite files above again, one for one,
+## when the slice came to open Riftfall Landing's Watch Breach far cap in this composition. Each is first put
+## back to where D-343 left it and then read exactly as before: `J11_PREFIXES` holds each file's J11 prefix, and
+## `J11_MOVES` its pairs of [as J11 wrote it, as D-343 left it], named in `J11_MOVE_IDS` and applied to that file
+## alone.
+const J11_PREFIXES: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "d4e839fb",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "d12ad271",
+	"res://tests/fallen_modal_life_state_verification.gd": "72e39a8a",
+	"res://tests/pending_fallen_restart_verification.gd": "7d0e3f08",
+	"res://tests/pending_fallen_restart_smoke.sh": "54a4464a",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "8aad4262",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "939d9b48",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "beb94aa0",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "6f792a38",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "8c653002",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "51d64a23",
+	"res://tests/enemy_hover_life_fractional_fill_verification.gd": "bf92c1ec",
+	"res://tests/enemy_hover_life_fractional_fill_smoke.sh": "64a84a9d",
+	"res://tests/combat_hud_safe_bottom_placement_verification.gd": "2ca75553",
+	"res://tests/combat_hud_safe_bottom_placement_smoke.sh": "f562e165",
+}
+const J11_MOVE_IDS: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "f0f7cf747a8cc738a5e9477ea2028e6d863d9d83d3cc6799d39032a0275db868",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/fallen_modal_life_state_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/pending_fallen_restart_verification.gd": "eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2",
+	"res://tests/pending_fallen_restart_smoke.sh": "a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "93e92c6cdfd494daf85285c7abaa06f5229b1bea0e7e4de67d3b6f02f253f182",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "a0d7525a31de8048a66815277d6eb7c67b76dc6d90bbfe2eccb519057cd525fa",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "fd86747b7f850c99c998632fb24898b79daa9dd06b2a9e199331a1162a6e40a6",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "ca348c34762f8640fa88bf6629f35c15aaaa7b9a495972800d4dcd94d4074845",
+	"res://tests/enemy_hover_life_fractional_fill_verification.gd": "bf9b61b11d9e56be4dff793b83d133f56bcdcf4ffdd8db0cc2ee5e8de0715d5a",
+	"res://tests/enemy_hover_life_fractional_fill_smoke.sh": "abb783d1bb48944f378110a2d21d02ba0f6367ad5958c99b4f6de19cbeb49188",
+	"res://tests/combat_hud_safe_bottom_placement_verification.gd": "8cdb1c4ac20a56377ccde3a23dc95da5de60cacb66b1777b88ed3cc2ee0f8f18",
+	"res://tests/combat_hud_safe_bottom_placement_smoke.sh": "95680171a31d73eac1122c03ce51baba10096ecc56f80691ff6476e132b58383",
+}
+var J11_MOVES: Dictionary = _stored(J11_MOVE_IDS)
+
+@end
+@text ec7413120e281dea953daf1f8dc86115e77b74bb315c3dac206002651ffe845a
+=353
+J11_FIRST=$'\t# First-MVP Gameplay J11 (decision D-344): RIFTFALL LANDING CLOSED ITS OWN FAR END,'
+J11_LAST=$'\tlog_event("landing cap opened", "%d Riftfall Landing boundary mass overlaps Broken Watch; its %d built nodes are removed in THIS composition, before the bake" % [landing_caps.size(), cap_nodes_removed])'
+
+# The slice with J9's lines put back
+@end
+@text ecfd27407fe123ec05030736234097f76906fb2bf8b19908bacb3d1c9e52f357
+=44
+const J10_SLICE_PREFIX: String = "883ef25e"
+
+@end
+@text edd58faa702c67bdd648632a19bbb7fbfb052fd9e3db0695182c0f523cb3bf3e
+=29
+	"$J9_VERIFICATION|aaa9e1d3"
+
+@end
+@text ee87b1e5e0dc2451cd5d34de55eb8f35ab7fe9fa7c15180cd031fcba5593677f
+=11
+D336_ROWS=(
+@end
+@text eeacac736294be47a063bfa16836664e6188de8f6100b2375dbd468e7df9d17d
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D334_ROWS=(
+@end
+@text ef0d930df3a207a42f16bfa909c811dcd00292a48ceac04660b3b59ad8eff8bf
+=31
+	"$THIS_VERIFICATION|2ca75553"
+
+@end
+@text f25dead2a4fb4c2f84d8452418a21a7929c69d72524e1f7fbfef5e89ad470de1
+=4009
+var VM1_MOVES: Dictionary = _stored(VM1_MOVE_IDS)
+
+## First-MVP Gameplay J11 (D-344) moved Gate 1D's slice and the accepted suite files above again, one for one,
+## when the slice came to open Riftfall Landing's Watch Breach far cap in this composition. Each is first put
+## back to where D-343 left it and then read exactly as before: `J11_PREFIXES` holds each file's J11 prefix, and
+## `J11_MOVES` its pairs of [as J11 wrote it, as D-343 left it], named in `J11_MOVE_IDS` and applied to that file
+## alone.
+const J11_PREFIXES: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "d4e839fb",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "d12ad271",
+	"res://tests/fallen_modal_life_state_verification.gd": "72e39a8a",
+	"res://tests/pending_fallen_restart_verification.gd": "7d0e3f08",
+	"res://tests/pending_fallen_restart_smoke.sh": "54a4464a",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "8aad4262",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "939d9b48",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "beb94aa0",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "6f792a38",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "8c653002",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "51d64a23",
+	"res://tests/enemy_hover_life_fractional_fill_verification.gd": "bf92c1ec",
+	"res://tests/enemy_hover_life_fractional_fill_smoke.sh": "64a84a9d",
+	"res://tests/combat_hud_safe_bottom_placement_verification.gd": "2ca75553",
+	"res://tests/combat_hud_safe_bottom_placement_smoke.sh": "f562e165",
+	"res://tests/guaranteed_drop_defeated_enemy_binding_verification.gd": "aaa9e1d3",
+	"res://tests/guaranteed_drop_defeated_enemy_binding_smoke.sh": "94b5e6c9",
+}
+const J11_MOVE_IDS: Dictionary = {
+	"res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd": "f0f7cf747a8cc738a5e9477ea2028e6d863d9d83d3cc6799d39032a0275db868",
+	"res://tests/first_mvp_modal_left_click_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/fallen_modal_life_state_verification.gd": "e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8",
+	"res://tests/pending_fallen_restart_verification.gd": "eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2",
+	"res://tests/pending_fallen_restart_smoke.sh": "a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2",
+	"res://tests/fallen_delay_item_interaction_verification.gd": "7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07",
+	"res://tests/fallen_delay_item_interaction_smoke.sh": "a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b",
+	"res://tests/fallen_delay_drop_highlight_verification.gd": "93e92c6cdfd494daf85285c7abaa06f5229b1bea0e7e4de67d3b6f02f253f182",
+	"res://tests/fallen_delay_drop_highlight_smoke.sh": "a0d7525a31de8048a66815277d6eb7c67b76dc6d90bbfe2eccb519057cd525fa",
+	"res://tests/combat_hud_fractional_fill_verification.gd": "fd86747b7f850c99c998632fb24898b79daa9dd06b2a9e199331a1162a6e40a6",
+	"res://tests/combat_hud_fractional_fill_smoke.sh": "ca348c34762f8640fa88bf6629f35c15aaaa7b9a495972800d4dcd94d4074845",
+	"res://tests/enemy_hover_life_fractional_fill_verification.gd": "bf9b61b11d9e56be4dff793b83d133f56bcdcf4ffdd8db0cc2ee5e8de0715d5a",
+	"res://tests/enemy_hover_life_fractional_fill_smoke.sh": "abb783d1bb48944f378110a2d21d02ba0f6367ad5958c99b4f6de19cbeb49188",
+	"res://tests/combat_hud_safe_bottom_placement_verification.gd": "8cdb1c4ac20a56377ccde3a23dc95da5de60cacb66b1777b88ed3cc2ee0f8f18",
+	"res://tests/combat_hud_safe_bottom_placement_smoke.sh": "95680171a31d73eac1122c03ce51baba10096ecc56f80691ff6476e132b58383",
+	"res://tests/guaranteed_drop_defeated_enemy_binding_verification.gd": "130d65f893fd3c07d1d6261bf850557fb3d45fb71ca060ff70c65914c90dc5b3",
+	"res://tests/guaranteed_drop_defeated_enemy_binding_smoke.sh": "769d2d53f0f88c9fcf5bc50e135e4b8ad73245459e92799fbbd041437fff1b4c",
+}
+var J11_MOVES: Dictionary = _stored(J11_MOVE_IDS)
+
+@end
+@text f3faeb8a5002438dba1daea537d7523e64b9d459843e479ebce67e542ea5aff1
+=187
+# First-MVP Gameplay J11 (D-344) moved this runner's rows again, one for one, when Gate 1D's slice came to open Riftfall Landing's Watch Breach far cap in its own composition.
+D332_ROWS=(
+@end
+@text f6b76794512ead2d7b3284570c17e150d3c7d604761114aedbd0f34481c4b020
+=183
+	_expect(FileAccess.get_sha256(J1_VERIFICATION).begins_with(J11_J1_PREFIX)
+			and _before_j11(FileAccess.get_file_as_string(J1_VERIFICATION)).sha256_text().begins_with(J10_J1_PREFIX)
+
+@end
+@text f79d062d676e7c534ff88a82bd3de1c8377646d6c9d332c1c775c5b0910908e3
+=135
+rebuilt_moved="$({ put_back_j11 "$PROJECT_DIR/$SLICE" | put_back_j10 - | put_back_j9 -; printf 'x'; } | shasum -a 256 | cut -d' ' -f1)"
+@end
+@text ffa01ea08bc2dc5ae4997a3c4d281b7ddd806d3703c7de0c6a70acba0f75d0f1
+=183
+	_expect(FileAccess.get_sha256(SLICE_SCRIPT).begins_with(J11_SLICE_PREFIX)
+			and _before_j11(FileAccess.get_file_as_string(SLICE_SCRIPT)).sha256_text().begins_with(J10_SLICE_PREFIX)
+
+@end
+@pairs 05bc9f20bd2e1d051921151955555d334bd6361c712413293bdb582e70d60d6c
+5ead413cc8449ba4710a7967b495263fc9a382f20d19c12c7008c3097dc7d9bd 7c47023c09f1ef3b4b6bcaccb19f206079681f6227d014f2a6cef3708d6aa29e
+7fe5ee88c4192dff18366fd7f0c7e1574ece6289111df638607b53b521d7a45d cdb9009402f2d2ef8363ba629e8766564416d4169032b7f8df0a385db3774408
+e8de5bba0ae76b947aeaf220ee59c83f071b155b43df4872d7ad3618ba6a022a 8630a2b2166b37ed357bf4bea454992b1e3a95939e20be4290895c7dd4ac2e6e
+40d7fa885780d741078806a6aea16891e86614c56cc9fd15302122989e149977 9d09420919265cd227489587e6a895943fc63035bde72c3bcc1fec4e0e1bc5ef
+3e3822adf7ccda8cca212678474b4080e1ebb37602057a858a8a23a3bb3a3420 3ed870a0dbdef97d8ab4840a574ee6118dd907d09094ff1ecd2e8f288e3f483c
+53ea19720430680d9b59a7bd8b36c3aa58843b9e1e03f38dabb3d78c5cf9d446 00184e2c2b01c0b4ad55ca2043209f3e6f6adce341444b0bad517757d59eadce
+82198afc5e8ebf88c01022a70b7ea921140c30d765bd36c2ed108eb28fe0f72d cb0799a68560b44baadd7fba7bb1513fa24432c7dba2399c415baa3c4e3e714e
+b623732a5ba9919fd3d39814a27c2f66cc760bc9e34435aaab6f7f1084cf9300 ecfd27407fe123ec05030736234097f76906fb2bf8b19908bacb3d1c9e52f357
+907896bbe6bcda374fdfb28a190b923a0d0ea0a8c95bb049435cf1033598ec2c a3241c04c67cbd685cc663ceae834e4cbdbb071d1a298c1161c8369027426004
+7ac91618ce1b7776f9a2d766395972bed29614a9762e0e2a93867697b974fe47 4d8bab710c25b579cdbef1e86c72b6badb682a3e02747571e6a81857e7fe2099
+a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+f25dead2a4fb4c2f84d8452418a21a7929c69d72524e1f7fbfef5e89ad470de1 236689b4726629880fad523fb8a2385c97d7829a4e0007cb76c1fc4c161d2261
+@end
+@pairs 130d65f893fd3c07d1d6261bf850557fb3d45fb71ca060ff70c65914c90dc5b3
+553d7712972d7dda7069b31db868e173330406b436077b99af7d9b7f7e849dcd 0a2f8d01127a3241dfe837fb9c271b05d5e28b10af6639706d465d3ade4e6e7f
+29e6d2f3a093543353b29aff5c23f7b4dc20c2308944259ea0e9550dd0803323 e52f832bad2024b5b323dff6c29e48c6cc407a155519ba6cf9364ad50a1cc55c
+6b768543bc200bbbc5d08891fe2d84ca8e99f2f04803f74393446159f4f7b676 a57e32a5b46855efc3c4d488379fe6ffd7c6784a7c62e60f7b1f56f10fc13d1e
+7ac91618ce1b7776f9a2d766395972bed29614a9762e0e2a93867697b974fe47 4d8bab710c25b579cdbef1e86c72b6badb682a3e02747571e6a81857e7fe2099
+a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+ebc5a4cd91e1d3d09b070f06f08d1b910fedbbbd1680c79ba407b44a9bb857e9 236689b4726629880fad523fb8a2385c97d7829a4e0007cb76c1fc4c161d2261
+@end
+@pairs 769d2d53f0f88c9fcf5bc50e135e4b8ad73245459e92799fbbd041437fff1b4c
+08f0aa2b9cba2e97417b73bd7d8da4067676bb9429acf7c2bb0f687b02a99d41 373b4084a44f0f1eea8f55568900c8ce68feed70c785fa7f1edf3b163b3a0057
+f79d062d676e7c534ff88a82bd3de1c8377646d6c9d332c1c775c5b0910908e3 c7ff95ef2be27f661a4f86ea5c77307f5d7c3f018e01461c7de58c4f60f83c5f
+5b5d5c4d968e4c9fc5885ee44c317eb43eaa76cbd2c243f5f2764d39a4f1ccb7 8c262afd50b309681ed635fd883f49a90d24592a1555cb79dd5c560eb1647572
+3844aa3e11b9ccc511a40c296481d44c20dbad05dafd7fe1be2ad43ea9252f45 a19f3aef887f7011e2fe90b5519423fe0c26d302c8061053b4630856f44e56f8
+ec7413120e281dea953daf1f8dc86115e77b74bb315c3dac206002651ffe845a 45d7216d52afb357bf1bc514d27667d4e167e2809a7ea35163d7f806b5143b48
+1efa4467622cde236fcbb22650a2c043e5041ab7b0044d16ba710b2e9ad01a34 6cf1bb0a2a51879931576dfba3d9c1337dfe260dd629828e8cf5d89816683082
+b95ac159afbf8c500bd6da9c3f44c42f4d2f588f4c12480f7aec70aaedd669f9 61ebae979ff1837b6c5d15270755000318de52c25c8299874e429cd4c4c5f1c6
+709c3457b47ae5923c86fdabf4495a918e537628126f34de391c32db7b96b8be bcb7b0e3a123594d284814526a3e088fa6b3710f41c3f269fdd936149f3b8c16
+5d7014e4073cce23fddc9be53775023ea22323c192d3a3b112179232440fd564 c8a476eaa93a3b5b3822e2f1037ff552ffe66c3584b9663e9f090d0a56be0f76
+4b6d83ccec572f7be161410288ce8513d3de3783623bab869a57ebb4ba29490c 0bf0ab0f384b864d3da903c2a417f3fb6b179179c6f067629ee0aa740f40ac31
+94db35b7292538f72b3977e3f18100561fd6bafd9c0d13c0a74678e059c3f928 393c09b5a641b277623ac7bd920f32d40654d187e69841d59f8d4e12194e4268
+b1b1d7ccaff472179acffa8e13748546687b1ae0b370efdac8baed263cccfd1e 8c3f3d50af0a24e9a83eef54f67e8b7a71aa4046e9593fef807835df7ed38f30
+2e170d75b30f93b7e70c371aad4e8e6fd187a230abc785f947eade26325795c8 c3ecbd0a576af8da53dc646fd258e9346b2ff2228a6c171bb87e76dae0827463
+2ffba9791eab751d75020b89c3717cc7af572cb8732309936734f6bde1624d0d 96e219f3413dd4b93aeb750f56440c17e4c9fe427064d02662afea6123eff1e4
+86376800622bbc621c3fa26f845ed5dc07c8b30f5926cf8dfea308d9bebbd599 540e10caa41192591c5811221057ccd1401e2bc8121a8517d331ba35362e535c
+88b18dd29a37de37693d6e2b19fd6699d498e290b89580f166b7d21bb1b05358 1d9b6c2ad22767ba206a8726ab13a1e21358b1ffb907ccd39e82225d59bc63d8
+d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684 a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+2926384de6e52db2feabe9387a914f2495d8f73247ac79b57a4f841e1bc49a11 0ef13663c1989ba0abe927266045a29c8ba77ec6005fefeb4cfe81015103aa2f
+8b5b96f6329a306cef0b3a05e6e64a055caecf3b42ee7849b5afee0e3d66bf3a 52413669567a9d0ff352016fb6cb9a57efd383d28208f582b7b44622791c386f
+@end
+@pairs 7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07
+c1cadfcfd4c077821d87f595202f6b7b1b46cb2913bd69e5dfae580b42c098e0 9eda3645d563f9171f3bf7e834b85b34df6ea3210bfedaced0a150f4a8b9d33b
+53ea19720430680d9b59a7bd8b36c3aa58843b9e1e03f38dabb3d78c5cf9d446 00184e2c2b01c0b4ad55ca2043209f3e6f6adce341444b0bad517757d59eadce
+1cc3a1951dc2e73ce8c707d5d5bac29304a8c6efd3469129e71dc5f2e935e04d c7110cd24625e138802cf3afa7de5eb31fd39c20813411196b420be48053a2cd
+e2942cc44196c104514e0dad2a0042fcbb6482244af62b866b1e32233c5bdbf4 abcba527fc3efecfc419fbc3ccc153cb1eccdcbb7a75c3b9dbcb98e1a1272c7b
+bb4dfdfaea56b25ed116987c0704a08a79a66e1351d4ac5d873867b8ffa810d5 7bef262d4af8bdcc9d47fdcb740270ddcfa8e313a675213742e51f99c91dc586
+326557fbafb02b5cc8e1212c61fd06459bd4f7e89e536979944835aa1258589b 68af1bd4dd2f845d89edebee52381f4c2e19809152180206d5f1e821cac78f41
+5954c5241e11e2c8d15aacdf22abeec8b86b2aaf6ee17b700e2cbf94ab663ca8 43d845bf8ee593242cd80195e04ef5f0163d9cbae4a10f21d8f553eb352f22ec
+037445a9984c49bb914108cf87afbe921c2e21e8ab95cebf916a54eccfb957c4 cf19c037b7e4a50c98543e15ca91411ff76c25152f78afb8a7c92bb436e3c124
+a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+1565f43c3964ca4c5e57f201eba6d9cf283617ccf7ef45921175c23b8623425e 177c07e2d30da181dafeb6e7ffb1371f38f260a1dce94801531e1214e7626de5
+@end
+@pairs 8cdb1c4ac20a56377ccde3a23dc95da5de60cacb66b1777b88ed3cc2ee0f8f18
+4856179cb53a1955f882dc6e14561925641a56fc6862c79584412b3339f64148 66186e92496c76a747ca50299532c2ce29862b24ac354d20c10e769ef4df6069
+7ac91618ce1b7776f9a2d766395972bed29614a9762e0e2a93867697b974fe47 4d8bab710c25b579cdbef1e86c72b6badb682a3e02747571e6a81857e7fe2099
+a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+8bf93b08fe42662622faa7922c320a40f500cb8435832c2b4bd6132b3bf2fdb1 236689b4726629880fad523fb8a2385c97d7829a4e0007cb76c1fc4c161d2261
+217ed690688015d46a45cdbd655521aa4a3bf49ee6aa79bf0d3c5eb7afbeac04 1bd0a935c45398290b57303c4c3294c2861bc79257216f4772e83eca36e38c86
+219b1259211a294b98e20be72422799bd0295476fcd541eb9349e8a75b0755ff 757fc097ca3050c7a2eaff6653f000869b37faed7e14b0731df5c2cd63fd4ccd
+@end
+@pairs 8e17e436ffeefd7232f1e9ecd29fdf596cc7fd3d192aeea3d5bf2a3f2a24c082
+8966649a6ee0bfa3d49d0fae92faf790a682be8e2ccf07917acda61a7b66dc35 1f61fb4f6e8a76aea3c1ea7a41363edfbd8dfc0a40218f1d01327eca1e5273cc
+bf63c63dafc50a358bb57c51ec616680ff6f70cf446b08baf0b737a1e8ff342e 01fbad526569888f1d1731b52ca79f820d2aea505052518c58170654117d47c0
+8fdec2637528c361aa9276a858c5a0258b4d8bee2b00bbbd8c3de9b069372f95 8a29cca36591c35117bc6dbb52602c2434ec88167b1770f26b263d8523b12814
+3844aa3e11b9ccc511a40c296481d44c20dbad05dafd7fe1be2ad43ea9252f45 a19f3aef887f7011e2fe90b5519423fe0c26d302c8061053b4630856f44e56f8
+0e8440d7e8bb51b2fdd114d227f73c508d82c07cbb8c321da4eafb1ac36f348f 6cec77746d715826de96c51939e3243f924ac91722ea4422ab273b5425cfea4b
+5a40a3198da67c668ad5c6d1ac3f3d4442e23cb58357ca3d2b78bb29b37e7b95 01c3275ec550410a4eb65b8d0fe09a42139e80eda4f6a3f81d8c0c0a151a9161
+20cf03c837cc9909c5505d9a42b01bd155f5fecc07dde5eb56d7f0f9b12ca4ca 79fdcb532e16ba87791f56bc6d0b29b136d077d884723b3361a9b01aa5c22d64
+5dec7d4790410cec7c0dd4dbfcbc6fc49948bfd5d9e7b32b9046c987bf6a7ed3 845e74586547603e714efb2b810f3a45caabd7a1943fcf9c6ec83faf02f9c827
+9bc5baf20e9ccaaf38f159f6c9c119df17367058b489e21d7c9d439ce05a55bb 8b45fa67409483ff74d61bf5cebb8edb72e50a5044b5aa113c3194a40ba467f8
+edd58faa702c67bdd648632a19bbb7fbfb052fd9e3db0695182c0f523cb3bf3e 768487cfb8c5e7eca84b0317732602e399776f91404c3bb207b6ae4aad43b0e4
+b95ac159afbf8c500bd6da9c3f44c42f4d2f588f4c12480f7aec70aaedd669f9 61ebae979ff1837b6c5d15270755000318de52c25c8299874e429cd4c4c5f1c6
+709c3457b47ae5923c86fdabf4495a918e537628126f34de391c32db7b96b8be bcb7b0e3a123594d284814526a3e088fa6b3710f41c3f269fdd936149f3b8c16
+5d7014e4073cce23fddc9be53775023ea22323c192d3a3b112179232440fd564 c8a476eaa93a3b5b3822e2f1037ff552ffe66c3584b9663e9f090d0a56be0f76
+4b6d83ccec572f7be161410288ce8513d3de3783623bab869a57ebb4ba29490c 0bf0ab0f384b864d3da903c2a417f3fb6b179179c6f067629ee0aa740f40ac31
+94db35b7292538f72b3977e3f18100561fd6bafd9c0d13c0a74678e059c3f928 393c09b5a641b277623ac7bd920f32d40654d187e69841d59f8d4e12194e4268
+b1b1d7ccaff472179acffa8e13748546687b1ae0b370efdac8baed263cccfd1e 8c3f3d50af0a24e9a83eef54f67e8b7a71aa4046e9593fef807835df7ed38f30
+2e170d75b30f93b7e70c371aad4e8e6fd187a230abc785f947eade26325795c8 c3ecbd0a576af8da53dc646fd258e9346b2ff2228a6c171bb87e76dae0827463
+2ffba9791eab751d75020b89c3717cc7af572cb8732309936734f6bde1624d0d 96e219f3413dd4b93aeb750f56440c17e4c9fe427064d02662afea6123eff1e4
+86376800622bbc621c3fa26f845ed5dc07c8b30f5926cf8dfea308d9bebbd599 540e10caa41192591c5811221057ccd1401e2bc8121a8517d331ba35362e535c
+88b18dd29a37de37693d6e2b19fd6699d498e290b89580f166b7d21bb1b05358 1d9b6c2ad22767ba206a8726ab13a1e21358b1ffb907ccd39e82225d59bc63d8
+d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684 a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+2926384de6e52db2feabe9387a914f2495d8f73247ac79b57a4f841e1bc49a11 0ef13663c1989ba0abe927266045a29c8ba77ec6005fefeb4cfe81015103aa2f
+8b5b96f6329a306cef0b3a05e6e64a055caecf3b42ee7849b5afee0e3d66bf3a 52413669567a9d0ff352016fb6cb9a57efd383d28208f582b7b44622791c386f
+@end
+@pairs 93e92c6cdfd494daf85285c7abaa06f5229b1bea0e7e4de67d3b6f02f253f182
+c1cadfcfd4c077821d87f595202f6b7b1b46cb2913bd69e5dfae580b42c098e0 9eda3645d563f9171f3bf7e834b85b34df6ea3210bfedaced0a150f4a8b9d33b
+53ea19720430680d9b59a7bd8b36c3aa58843b9e1e03f38dabb3d78c5cf9d446 00184e2c2b01c0b4ad55ca2043209f3e6f6adce341444b0bad517757d59eadce
+bb4dfdfaea56b25ed116987c0704a08a79a66e1351d4ac5d873867b8ffa810d5 7bef262d4af8bdcc9d47fdcb740270ddcfa8e313a675213742e51f99c91dc586
+97268f698404ed70099f3189dfd5cc70d6d66a45c7073314e0d4388bbb6d4acf 0ff17f8670105a528407765af1f6ee2b1002f52ca8656b3f5aab7d09f8fa8518
+aa8ed081ea29bc0928a5f8e80159e2af7971e60140e922f93afa70c1047415a8 56f7de3d0db5673b0dd365501b131b8cd62662ccb54fb5aa345f46570bded268
+7ac91618ce1b7776f9a2d766395972bed29614a9762e0e2a93867697b974fe47 4d8bab710c25b579cdbef1e86c72b6badb682a3e02747571e6a81857e7fe2099
+a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+81e895e1c2823181225e51e6b05193192ab7357a2cc1151aab463dc98be283dd 236689b4726629880fad523fb8a2385c97d7829a4e0007cb76c1fc4c161d2261
+@end
+@pairs 95680171a31d73eac1122c03ce51baba10096ecc56f80691ff6476e132b58383
+42f4db26ccb260ae06a9c02bef2c0c840f2d92386ef0cb4c9c056b5bbf921217 ee87b1e5e0dc2451cd5d34de55eb8f35ab7fe9fa7c15180cd031fcba5593677f
+e4e9998bce94f02d2bcf907ff9536a99e0ba39a4a172a741771db248993b02bc 77be6144db7c4dad6040eacc543e8a622a7123dc6d941165638fc9bf811ea4f3
+ef0d930df3a207a42f16bfa909c811dcd00292a48ceac04660b3b59ad8eff8bf 23a9c6c0576aa9fbfa9915640b16b4223381f91e571622036bee7dc2848bb076
+5d7014e4073cce23fddc9be53775023ea22323c192d3a3b112179232440fd564 c8a476eaa93a3b5b3822e2f1037ff552ffe66c3584b9663e9f090d0a56be0f76
+4b6d83ccec572f7be161410288ce8513d3de3783623bab869a57ebb4ba29490c 0bf0ab0f384b864d3da903c2a417f3fb6b179179c6f067629ee0aa740f40ac31
+94db35b7292538f72b3977e3f18100561fd6bafd9c0d13c0a74678e059c3f928 393c09b5a641b277623ac7bd920f32d40654d187e69841d59f8d4e12194e4268
+b1b1d7ccaff472179acffa8e13748546687b1ae0b370efdac8baed263cccfd1e 8c3f3d50af0a24e9a83eef54f67e8b7a71aa4046e9593fef807835df7ed38f30
+2e170d75b30f93b7e70c371aad4e8e6fd187a230abc785f947eade26325795c8 c3ecbd0a576af8da53dc646fd258e9346b2ff2228a6c171bb87e76dae0827463
+2ffba9791eab751d75020b89c3717cc7af572cb8732309936734f6bde1624d0d 96e219f3413dd4b93aeb750f56440c17e4c9fe427064d02662afea6123eff1e4
+86376800622bbc621c3fa26f845ed5dc07c8b30f5926cf8dfea308d9bebbd599 540e10caa41192591c5811221057ccd1401e2bc8121a8517d331ba35362e535c
+88b18dd29a37de37693d6e2b19fd6699d498e290b89580f166b7d21bb1b05358 1d9b6c2ad22767ba206a8726ab13a1e21358b1ffb907ccd39e82225d59bc63d8
+d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684 a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+@end
+@pairs a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b
+7080c04a76f1aa5c8769e49891dbfb508c043c3636e8fa74091ad3473c59de04 04929cc702527dedefcc25abd00184af8d859c7faa11c4e5a0b85c8767088374
+d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684 a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+2926384de6e52db2feabe9387a914f2495d8f73247ac79b57a4f841e1bc49a11 0ef13663c1989ba0abe927266045a29c8ba77ec6005fefeb4cfe81015103aa2f
+8b5b96f6329a306cef0b3a05e6e64a055caecf3b42ee7849b5afee0e3d66bf3a 52413669567a9d0ff352016fb6cb9a57efd383d28208f582b7b44622791c386f
+@end
+@pairs a0d7525a31de8048a66815277d6eb7c67b76dc6d90bbfe2eccb519057cd525fa
+422c3ebebd2bfb40f3f21f73fd7d8698966a8abd658b3df490873436c907dd8a 0b14078688b7e6f972df860d309b66fb9a2ad8e1a8a2a4802de639b958a903c6
+86376800622bbc621c3fa26f845ed5dc07c8b30f5926cf8dfea308d9bebbd599 540e10caa41192591c5811221057ccd1401e2bc8121a8517d331ba35362e535c
+88b18dd29a37de37693d6e2b19fd6699d498e290b89580f166b7d21bb1b05358 1d9b6c2ad22767ba206a8726ab13a1e21358b1ffb907ccd39e82225d59bc63d8
+d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684 a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+2926384de6e52db2feabe9387a914f2495d8f73247ac79b57a4f841e1bc49a11 0ef13663c1989ba0abe927266045a29c8ba77ec6005fefeb4cfe81015103aa2f
+8b5b96f6329a306cef0b3a05e6e64a055caecf3b42ee7849b5afee0e3d66bf3a 52413669567a9d0ff352016fb6cb9a57efd383d28208f582b7b44622791c386f
+@end
+@pairs a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2
+a8d753e856e448c865946bba3b5f057bcf127262d6f9e9e6cf8c3b0cbb8cc07e c54564001fe7ad27c1c551c4c4f5f11e4b6de138731ab2a8e8472c99afada2ac
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+2926384de6e52db2feabe9387a914f2495d8f73247ac79b57a4f841e1bc49a11 0ef13663c1989ba0abe927266045a29c8ba77ec6005fefeb4cfe81015103aa2f
+8b5b96f6329a306cef0b3a05e6e64a055caecf3b42ee7849b5afee0e3d66bf3a 52413669567a9d0ff352016fb6cb9a57efd383d28208f582b7b44622791c386f
+@end
+@pairs abb783d1bb48944f378110a2d21d02ba0f6367ad5958c99b4f6de19cbeb49188
+eeacac736294be47a063bfa16836664e6188de8f6100b2375dbd468e7df9d17d 3fc0677b888d8e5b7894726a0de1957499c90cdf775509e14a1ad9bdab867d82
+e4e9998bce94f02d2bcf907ff9536a99e0ba39a4a172a741771db248993b02bc 77be6144db7c4dad6040eacc543e8a622a7123dc6d941165638fc9bf811ea4f3
+94db35b7292538f72b3977e3f18100561fd6bafd9c0d13c0a74678e059c3f928 393c09b5a641b277623ac7bd920f32d40654d187e69841d59f8d4e12194e4268
+b1b1d7ccaff472179acffa8e13748546687b1ae0b370efdac8baed263cccfd1e 8c3f3d50af0a24e9a83eef54f67e8b7a71aa4046e9593fef807835df7ed38f30
+2e170d75b30f93b7e70c371aad4e8e6fd187a230abc785f947eade26325795c8 c3ecbd0a576af8da53dc646fd258e9346b2ff2228a6c171bb87e76dae0827463
+2ffba9791eab751d75020b89c3717cc7af572cb8732309936734f6bde1624d0d 96e219f3413dd4b93aeb750f56440c17e4c9fe427064d02662afea6123eff1e4
+86376800622bbc621c3fa26f845ed5dc07c8b30f5926cf8dfea308d9bebbd599 540e10caa41192591c5811221057ccd1401e2bc8121a8517d331ba35362e535c
+88b18dd29a37de37693d6e2b19fd6699d498e290b89580f166b7d21bb1b05358 1d9b6c2ad22767ba206a8726ab13a1e21358b1ffb907ccd39e82225d59bc63d8
+d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684 a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+@end
+@pairs bf9b61b11d9e56be4dff793b83d133f56bcdcf4ffdd8db0cc2ee5e8de0715d5a
+c834d1f0219077e215e46a98b5792e8f6daff581c8165cf1c1cdd224d9473f6b 353af4db1273e6ce2835b9e24b5282d5bbbcaee24028bc2c6984d889e389eddf
+7ac91618ce1b7776f9a2d766395972bed29614a9762e0e2a93867697b974fe47 4d8bab710c25b579cdbef1e86c72b6badb682a3e02747571e6a81857e7fe2099
+a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+c3dc992b0a7470fc52e6e49a28cc20bbd83637bc17cadf2da807f9f7aa29f476 236689b4726629880fad523fb8a2385c97d7829a4e0007cb76c1fc4c161d2261
+217ed690688015d46a45cdbd655521aa4a3bf49ee6aa79bf0d3c5eb7afbeac04 1bd0a935c45398290b57303c4c3294c2861bc79257216f4772e83eca36e38c86
+219b1259211a294b98e20be72422799bd0295476fcd541eb9349e8a75b0755ff 757fc097ca3050c7a2eaff6653f000869b37faed7e14b0731df5c2cd63fd4ccd
+@end
+@pairs ca348c34762f8640fa88bf6629f35c15aaaa7b9a495972800d4dcd94d4074845
+f3faeb8a5002438dba1daea537d7523e64b9d459843e479ebce67e542ea5aff1 bad5ce90261fde1f5f84d3df6030c630311fe9d6ac72a79d66a8159374e9b969
+e4e9998bce94f02d2bcf907ff9536a99e0ba39a4a172a741771db248993b02bc 77be6144db7c4dad6040eacc543e8a622a7123dc6d941165638fc9bf811ea4f3
+2e170d75b30f93b7e70c371aad4e8e6fd187a230abc785f947eade26325795c8 c3ecbd0a576af8da53dc646fd258e9346b2ff2228a6c171bb87e76dae0827463
+2ffba9791eab751d75020b89c3717cc7af572cb8732309936734f6bde1624d0d 96e219f3413dd4b93aeb750f56440c17e4c9fe427064d02662afea6123eff1e4
+86376800622bbc621c3fa26f845ed5dc07c8b30f5926cf8dfea308d9bebbd599 540e10caa41192591c5811221057ccd1401e2bc8121a8517d331ba35362e535c
+88b18dd29a37de37693d6e2b19fd6699d498e290b89580f166b7d21bb1b05358 1d9b6c2ad22767ba206a8726ab13a1e21358b1ffb907ccd39e82225d59bc63d8
+d62e4080472e47a77f4f892761cc88b5e71e64eefcd69f672ba0d50db9088514 67e306e6e4b530cdea810c63ae78e22c973acb9734548eac86643e8c180e9b49
+72c2d34f2b833cb36d65f84881dd36ce1477c8d476cf5a7eefb141584f7ea684 a5f5a6f14d4c5fb698620025892ad384632992560b389a30554ddb4d68f9a63a
+2b0fad42c04a6bede00b118a38d848b2f41b02681296e0616933ae327495036a 1836a93fe365ae1bfa0cbddfa656bfc616032890a245a38961ee757614693519
+@end
+@pairs e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8
+219b1259211a294b98e20be72422799bd0295476fcd541eb9349e8a75b0755ff 757fc097ca3050c7a2eaff6653f000869b37faed7e14b0731df5c2cd63fd4ccd
+@end
+@pairs eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2
+0855f5f668f1a0a771a65b704d3507787f2b9832f354610d8a07e49de2330127 286b64c1820317b652d904e0d361ea9110ab9d89dd52601b84c3bfd12a63bade
+f6b76794512ead2d7b3284570c17e150d3c7d604761114aedbd0f34481c4b020 aa147d361025ca950433131e71edbf131d84b8fa79e4f69bd8a16fe617c321d2
+ffa01ea08bc2dc5ae4997a3c4d281b7ddd806d3703c7de0c6a70acba0f75d0f1 925b25867e611a06834870e735761ea4a373259a8409289215e78cc5224de25d
+295e8e7e94da7e6c732a926dc3fb24c7374e50634c73f9398e821239fcc48617 855ace3b6845fb3e6a7d65af11cb5e91b93215c9a7bf8ee877f9fce40f58f334
+90ecc55a0eca2cf86fe095be75b4f30d029d30ae306cc84e1c2c7389477d705f b2ec01e4acbbb73ad970f83df7d481f54238765504498b8ea8877a29c7e1d5fd
+ea33568424f7c112d48777e4f4b2014a1a0c25c8c0e3c1720a1b7a7470d8a739 a95c648337b989336d0bd69043c77d0b4f86a4997d0b2ed34195346ff4199e4a
+808731d93d8bf93d16a109701a2e46a0fcf0979dff48d523125c4059249dc844 a5e2d5e7614568c543968dbafb5eee8106de91c4a086c8f3813d810516fb801a
+ce5a53fdb4921b1c7c43dec2f678f54733c90db26ee16aeadcb0fe342f133224 1546edd79723fbd4b85be1918b52b9d99ff14869caa9535f47bb7bd74661457f
+@end
+@pairs f0f7cf747a8cc738a5e9477ea2028e6d863d9d83d3cc6799d39032a0275db868
+d832eec34a2d46c2e104c6201766b800c7f3c64d8e50d2e3063a2ecb3e5484a7 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+@end
+@pairs fd86747b7f850c99c998632fb24898b79daa9dd06b2a9e199331a1162a6e40a6
+83fe665ea40042784ea30cafa8ed212683d52804f85c0de811f8d6ca6d19bcbd 417d9d9a79e418ac31af0c0ac12c7dbe11b645e2e4a32e3e2ee7113ed4eaa77b
+7ac91618ce1b7776f9a2d766395972bed29614a9762e0e2a93867697b974fe47 4d8bab710c25b579cdbef1e86c72b6badb682a3e02747571e6a81857e7fe2099
+a96a7ff2bae89c2dab31c3d392f4a00e304fa027809ce0c606c25a2cabd39e62 8399197aa4671a92e73e135701604e5cf5bef8abf740be115157c8d476d8bf8c
+a5fb925c32d907cd39fddbce9ac795f7bc6b8bd40ab45c15aa1f6ef8891121d3 236689b4726629880fad523fb8a2385c97d7829a4e0007cb76c1fc4c161d2261
+217ed690688015d46a45cdbd655521aa4a3bf49ee6aa79bf0d3c5eb7afbeac04 1bd0a935c45398290b57303c4c3294c2861bc79257216f4772e83eca36e38c86
+219b1259211a294b98e20be72422799bd0295476fcd541eb9349e8a75b0755ff 757fc097ca3050c7a2eaff6653f000869b37faed7e14b0731df5c2cd63fd4ccd
+@end
+@edge D-344 layer res://scripts/first_mvp/severed_threshold/broken_watch_slice.gd d4e839fb3617793be3aefa793ae7edcbf1e2faf9d3b3ca0f7b4b57f37b5ac14f 883ef25e0cf401607e38094b0d303820da6dc8114ad849f1616869941d328a55 f0f7cf747a8cc738a5e9477ea2028e6d863d9d83d3cc6799d39032a0275db868
+@edge D-344 layer res://tests/combat_hud_fractional_fill_smoke.sh 51d64a23890eb758f71a4e5d66f07590dec1a6f32e37b2a782a030cb0f430d76 be9f6f47ceb3e79d9b784fe1e8766639cec351add0c52c99e2f4a3a9686b0144 ca348c34762f8640fa88bf6629f35c15aaaa7b9a495972800d4dcd94d4074845
+@edge D-344 layer res://tests/combat_hud_fractional_fill_verification.gd 8c653002bdc47f0a35497da88756a29622ff398c5d4b510648f2dd7f5bd5a814 d23c5fdc1b708c7c87e48b430ead753cdc5c08875983bf7cfab4db898b1797bf fd86747b7f850c99c998632fb24898b79daa9dd06b2a9e199331a1162a6e40a6
+@edge D-344 layer res://tests/combat_hud_safe_bottom_placement_smoke.sh f562e165d90170679e5bf35e0c0ce65b92d51d759d14359ed2dd1a507500abde 95506b40c3274ced5143436e468205cd3fb6326bf2a029f2581f6e867fa34fe7 95680171a31d73eac1122c03ce51baba10096ecc56f80691ff6476e132b58383
+@edge D-344 layer res://tests/combat_hud_safe_bottom_placement_verification.gd 2ca7555313e5ee462a2fbc2738a478cf58161580adaba1b67015efa4c6fafd0b bfab962cb08b9466b33cdfc9de3802e4cbc224a3f1eb3a865c7cc2c63d0d5e3f 8cdb1c4ac20a56377ccde3a23dc95da5de60cacb66b1777b88ed3cc2ee0f8f18
+@edge D-344 layer res://tests/enemy_hover_life_fractional_fill_smoke.sh 64a84a9d9d0c6ea3d32b0343e0af77329093be57ee0b79dddb2015e1a43d766a 85a49a224612711fd9e7964449538afc19f3eda586f9d106f70a3c81e18b6333 abb783d1bb48944f378110a2d21d02ba0f6367ad5958c99b4f6de19cbeb49188
+@edge D-344 layer res://tests/enemy_hover_life_fractional_fill_verification.gd bf92c1ecfa8dd995a6e6c42c531487511deffb53473edb116cf5b066ef14afb1 09e25736956a9f750331a44f6f973344a7fe59cdcb7bf1e9265e6fc635a197e6 bf9b61b11d9e56be4dff793b83d133f56bcdcf4ffdd8db0cc2ee5e8de0715d5a
+@edge D-344 layer res://tests/fallen_delay_drop_highlight_smoke.sh 6f792a386aaefacf714684f041c567eefa7b74720f95da77336c902db7a2880a 08aa2d0b359a9a350a4b2b07dda138200f57faea5a5ef60c60a5849f66e1ded8 a0d7525a31de8048a66815277d6eb7c67b76dc6d90bbfe2eccb519057cd525fa
+@edge D-344 layer res://tests/fallen_delay_drop_highlight_verification.gd beb94aa05c3dd99d9874ec8d5f4c5b5cd781054c5334ae60dd3b4b8d557d80cf 6204a260e42a042a5407e5b13d8bb105a8899df286b4fddff043ac35710722b8 93e92c6cdfd494daf85285c7abaa06f5229b1bea0e7e4de67d3b6f02f253f182
+@edge D-344 layer res://tests/fallen_delay_item_interaction_smoke.sh 939d9b4815d46b5ba73161f65e630fe75c086d585025e53ebd995628c1d25942 0fd60eb7d1cb15544cf1a17102ab5cec1516e55ef1e0b1556fa2c8fe04485cfc a089abfb62d27e1a1f9d8f3e523c12d8da6f930056aba5d3daa0a7a687f5ce2b
+@edge D-344 layer res://tests/fallen_delay_item_interaction_verification.gd 8aad426265c3040f065b2dc828cb0452cf2be43c496de1827b7faa771dd1f730 15352d8a50b10ad98768d76c3c1dd68acad57753cb5900fc72d77b2c83517291 7b773bea4b14e0ff94ae58afcf898e9d269834c1c8bd257ad10717becf55fc07
+@edge D-344 layer res://tests/fallen_modal_life_state_verification.gd 72e39a8af345f213ebcddc9866e69ce1a0384ef6efb042e125e7afbce75b6356 935a37e9a13cc47d383bbaf4dab0af90d790dfbb7f87509e0b8b9307f724520c e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8
+@edge D-344 layer res://tests/first_mvp_modal_left_click_verification.gd d12ad27160a6577b89a7d482364a86e4c662572749e05c47a3f45ac8c429d698 75f2648650da8e9d3a97e205eb97a843b1ed2a4d6b8b04824f46d56d30cd5130 e7b62a6207638ff89cd8732cc9bbcfd57503f83f8877662c7a4806a709fdc3c8
+@edge D-344 layer res://tests/guaranteed_drop_defeated_enemy_binding_smoke.sh 94b5e6c914aabcd1959694d8cd0b2a8e80ef22088f46c44e8b85687a393bd19b 2254440306d58e20079532cd3577e9df48bc2e3bb0d4831a332f91ef64deae20 769d2d53f0f88c9fcf5bc50e135e4b8ad73245459e92799fbbd041437fff1b4c
+@edge D-344 layer res://tests/guaranteed_drop_defeated_enemy_binding_verification.gd aaa9e1d332a2e297b77c6256801eceb982d5fb7511423e1ea0c9c0639728ea37 e526397bf360dab81887bb63936be6827fe8a2823258d3eec83bad7c89d70248 130d65f893fd3c07d1d6261bf850557fb3d45fb71ca060ff70c65914c90dc5b3
+@edge D-344 layer res://tests/pending_fallen_restart_smoke.sh 54a4464a7cbe400a205f3d8a5d5b3a1d81ef6b0ef8dcc726558a9de67b0e517e 9a860bca0646e71afa06bbca104d9e16319993babd57100ba3b5b0bcf0cb12d1 a7a5214f7f0fd6e1f4d32fc539df430b11312aee42ad845ee135cbdba73cecd2
+@edge D-344 layer res://tests/pending_fallen_restart_verification.gd 7d0e3f086f52e86debf0b451a16d3142e89a70e62dd9aaf13ae167c9704e15f6 53c379761fa52afb1b8c28306c04daca87791eccc6416c9d3b536c21a1653fe1 eab887b6ceea266bb06554728df7227e3c47fb0338990a0f9e3209f733f9b6c2
+@edge D-344 layer res://tests/restart_position_stability_smoke.sh 34db74ce3fa60f0be7e33e460a30219188b267294c49feb3ad25864d5238c3f2 02f03162742af697c56cb76aefd0f9262bac26c92e6a479a5d618c8b55967681 8e17e436ffeefd7232f1e9ecd29fdf596cc7fd3d192aeea3d5bf2a3f2a24c082
+@edge D-344 layer res://tests/restart_position_stability_verification.gd 1588cff8b91e3c3a4bc1f23180968e9981aebda279691256dcd947e4985136d0 bf25715a79af9f3ec30d6988b9d477a38a79cc6e0f61de10fd9d0c7e167c5a7e 05bc9f20bd2e1d051921151955555d334bd6361c712413293bdb582e70d60d6c

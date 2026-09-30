@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="FirstMvpWeaponRecord" load_steps=2 format=3]
+
+; Riftwrought — Gate 1E: the spell Foundation Cache weapon (D-219).
+;
+; Canonical entry, design/FIRST_MVP_CONTENT_AND_REWARD_CATALOGUE.md section 4.1:
+;   | Cantor Wand | Wand | flexible one-handed Spell support |
+;   | increased Spell Damage |
+;
+; Pairs with Emberbolt.
+;
+; ITS 60 RAW PHYSICAL IS NOT A WEAKNESS AND IS THE WHOLE POINT. A Spell's
+; damage is SKILL-DEFINED (design/SKILLS_AND_SKILL_MODIFICATION.md), so
+; Emberbolt deals its own 130 Fire whatever this record says. The wand's own
+; weapon damage matters only if something swings it, and Quick Strike is not
+; legal with a wand — so the number is deliberately poor, honest, and visible
+; in the comparison rather than inflated to look competitive.
+;
+; That contrast is exactly what the Foundation Cache exists to teach: the Spell
+; package is not "a worse sword", it is a different relationship between the
+; weapon and the damage.
+;
+; The implicit is DESCRIBED and NOT IMPLEMENTED — see the greatsword's note.
+
+[ext_resource type="Script" path="res://scripts/items/first_mvp_weapon_record.gd" id="1_record"]
+
+[resource]
+script = ExtResource("1_record")
+display_name = "Cantor Wand"
+weapon_id = &"cantor_wand"
+damage_type = "Physical"
+physical_damage = 60.0
+increased_attack_speed = 0.0
+base_type = "Wand"
+weapon_family = &"wand"
+hands = 0
+item_id = &"cantor_wand"
+item_level = 1
+required_level = 1
+implicit_text = "Increased Spell Damage (described; the affix system is not implemented yet)"
+identity_line = "Flexible one-handed Spell support. Poor for striking; it is not meant for striking."

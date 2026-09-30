@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="PrototypeWeaponData" load_steps=2 format=3]
+
+; Prototype Zero — the starting prototype weapon (specification §13, D-184).
+;
+; One of exactly TWO deterministic prototype weapon records. It is NOT an item:
+; there is no Base Type, Item Level, requirement, rarity, Implicit, affix, Tier,
+; conflict group, Wrought Modifier, Unique mechanic, procedural roll, inventory
+; position, or equipment slot anywhere in Prototype Zero.
+;
+; ceil(300 Graveblade Life / 100 damage) = 3 Hits — the locked Gate D starter
+; relationship, which Gate E leaves exactly as the project owner accepted it
+; under D-183 and then halves with the Honed Sword.
+;
+; Specification §13: "attack-speed change: none". Quickened Form is the passive
+; that changes attack speed, and keeping the two apart is what lets the project
+; owner judge the weapon upgrade and the passive separately.
+
+[ext_resource type="Script" path="res://scripts/combat/prototype_weapon_data.gd" id="1_weapon"]
+
+[resource]
+script = ExtResource("1_weapon")
+display_name = "Prototype Training Sword"
+weapon_id = &"training_sword"
+damage_type = "Physical"
+physical_damage = 100.0
+increased_attack_speed = 0.0

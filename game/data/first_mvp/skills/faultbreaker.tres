@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="FirstMvpSkillData" load_steps=2 format=3]
+
+; Riftwrought — Gate 1E: Faultbreaker, the heavy melee Foundation Skill (D-219).
+;
+; Canonical foundation (design/SKILLS_AND_SKILL_MODIFICATION.md):
+;   "slow Physical Melee Area Attack" — Attack, Melee, Area, Hit, Physical.
+;   "Faultbreaker is a committed heavy slam or strike using the heavy-melee
+;    animation family."
+;   "Quick Strike asks how rapidly the character can interact. Faultbreaker
+;    asks what one committed impact can accomplish."
+;
+; THE NUMBERS ARE A DELIBERATE CONTRAST WITH QUICK STRIKE, NOT A BUFF.
+; Quick Strike is 0.80 s for 1.00x weapon damage on ONE target at 1.65 m.
+; Faultbreaker is 1.40 s for 1.60x weapon damage on up to THREE targets inside
+; a 3.20 m radius. Against one Graveblade that is 1.75x the time for 1.60x the
+; damage — slightly WORSE single-target damage per second, which is the point:
+; the heavy Skill buys area and impact, not raw throughput.
+;
+; Measured against the reused 300-Life Graveblade with the Watchsteel Sword
+; (150 raw Physical):
+;   Quick Strike   ceil(300 / 150) = 2 Hits over 1.60 s
+;   Faultbreaker   ceil(300 / 240) = 2 Hits over 2.80 s, but up to three at once
+;
+; The 3.20 m radius is 4 P and comfortably inside the 13.532 m the accepted
+; camera shows ahead of the body, so the whole affected area is always visible.
+;
+; DELIBERATELY ABSENT, per the Gate 1E brief: Stun, Bleed, knockback,
+; conversion, and every crowd-control system. The brief permits reusing a very
+; small existing knockback impulse if one already existed cleanly; none does,
+; and none is created here.
+
+[ext_resource type="Script" path="res://scripts/skills/first_mvp_skill_data.gd" id="1_skill"]
+
+[resource]
+script = ExtResource("1_skill")
+skill_id = &"faultbreaker"
+display_name = "Faultbreaker"
+tags = [&"Attack", &"Melee", &"Area", &"Hit", &"Physical"]
+identity = "A committed heavy strike. Slow, wide, and built around what one impact can accomplish rather than how fast you can repeat it."
+archetype = 1
+damage_source = 0
+animation_family = 1
+damage_type = "Physical"
+action_time = 1.4
+release_marker_normalized = 0.44
+release_window = 0.08
+input_buffer = 0.12
+weapon_damage_scale = 1.6
+spell_damage = 0.0
+reach = 3.2
+release_arc_degrees = 360.0
+area_radius = 3.2
+maximum_targets = 3
+approach_stop_margin = 0.1
+projectile_speed = 0.0
+projectile_range = 0.0
+projectile_radius = 0.22
+projectile_count = 1
+mana_cost = 12.0
+required_weapon_families = [&"two_handed_sword", &"two_handed_axe"]
+requirement_text = "Requires a two-handed sword or two-handed axe"
+soft_target_distance = 5.0
+soft_target_cone_degrees = 65.0
+soft_target_angle_tie_degrees = 12.0
+soft_target_retention = 0.35

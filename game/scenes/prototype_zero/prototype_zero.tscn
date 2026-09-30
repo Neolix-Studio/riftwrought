@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=3]
+
+; Prototype Zero — room root (Gates B, C, D, and E).
+;
+; Calibration room, navigation region, player and Graveblade spawns, camera rig,
+; destination marker, input-family tracking, the Gate C inert target fixtures,
+; the Gate E progression director and Drops node, and the instrumentation and
+; Gate E surfaces. Still nothing else: no pause menu, settings panel, Fallen
+; overlay, disk save, Start New / Continue flow, or audio player — those are
+; Gate F.
+;
+; The director owns the Graveblade roster. Suspended (Gate B, C, and D runs) it
+; produces exactly the Gate D arrangement: one Graveblade at GravebladeSpawn,
+; no rewards and no waves.
+;
+; The Targets node holds practice posts, NOT Graveblades. They have no AI, no
+; attack, no Life, and no death, and they sit on the "target" physics layer only,
+; so they neither collide with the player nor enter the navigation bake.
+;
+; The Gate A asset spike is preserved unchanged at
+; scenes/prototype_zero/gate_a_asset_spike.tscn as a regression fixture.
+
+[ext_resource type="Script" path="res://scripts/prototype_zero/prototype_zero.gd" id="1_root"]
+[ext_resource type="PackedScene" path="res://scenes/prototype_zero/calibration_room.tscn" id="2_room"]
+[ext_resource type="Script" path="res://scripts/camera/prototype_camera_rig.gd" id="3_camera"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/destination_marker.gd" id="4_marker"]
+[ext_resource type="Script" path="res://scripts/input/input_family_tracker.gd" id="5_family"]
+[ext_resource type="PackedScene" path="res://scenes/ui/gate_b_calibration_overlay.tscn" id="6_overlay"]
+[ext_resource type="PackedScene" path="res://scenes/ui/gate_c_combat_overlay.tscn" id="7_combat"]
+[ext_resource type="PackedScene" path="res://scenes/ui/gate_d_encounter_overlay.tscn" id="8_encounter"]
+[ext_resource type="Script" path="res://scripts/prototype_zero/progression_director.gd" id="9_director"]
+[ext_resource type="Resource" path="res://data/prototype_zero/progression.tres" id="10_progression"]
+[ext_resource type="PackedScene" path="res://scenes/ui/gate_e_lab_overlay.tscn" id="11_lab"]
+[ext_resource type="PackedScene" path="res://scenes/ui/gate_e_item_comparison.tscn" id="12_comparison"]
+[ext_resource type="PackedScene" path="res://scenes/ui/gate_e_passive_card.tscn" id="13_passive"]
+
+[sub_resource type="ProceduralSkyMaterial" id="Sky_1"]
+sky_top_color = Color(0.0705882, 0.0784314, 0.0980392, 1)
+sky_horizon_color = Color(0.129412, 0.129412, 0.145098, 1)
+ground_bottom_color = Color(0.0313726, 0.0352941, 0.0431373, 1)
+ground_horizon_color = Color(0.129412, 0.129412, 0.145098, 1)
+
+[sub_resource type="Sky" id="Sky_2"]
+sky_material = SubResource("Sky_1")
+
+[sub_resource type="Environment" id="Env_1"]
+background_mode = 2
+sky = SubResource("Sky_2")
+ambient_light_source = 3
+ambient_light_color = Color(0.454902, 0.501961, 0.6, 1)
+ambient_light_energy = 0.85
+tonemap_mode = 3
+fog_enabled = true
+fog_light_color = Color(0.0666667, 0.0705882, 0.0862745, 1)
+fog_density = 0.006
+
+[node name="PrototypeZero" type="Node3D"]
+script = ExtResource("1_root")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env_1")
+
+[node name="KeyLight" type="DirectionalLight3D" parent="."]
+light_color = Color(1, 0.937255, 0.858824, 1)
+light_energy = 1.0
+shadow_enabled = true
+shadow_opacity = 0.8
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+
+[node name="CalibrationRoom" parent="NavigationRegion3D" instance=ExtResource("2_room")]
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="PlayerSpawn" type="Marker3D" parent="Actors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+; Gate D. 7.5 m from the player spawn: inside the Graveblade's 10.0 m awareness
+; distance so the encounter begins without waiting, and clear of every practice
+; post so the fight is judged in open floor rather than through props.
+[node name="GravebladeSpawn" type="Marker3D" parent="Actors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4.5)
+
+[node name="Targets" type="Node3D" parent="."]
+
+; Gate E. The one guaranteed ground drop lives here. It is on no physics layer,
+; so it can never be targeted by Quick Strike, block movement, or enter the
+; navigation bake.
+[node name="Drops" type="Node3D" parent="."]
+
+; Gate E. Owns the five stages, the rewards, the deterministic 1 -> 2 -> 3 waves,
+; the measured safe spawn geometry, and the ground drop. Suspending it restores
+; the exact Gate D arrangement.
+[node name="PrototypeDirector" type="Node" parent="."]
+script = ExtResource("9_director")
+data = ExtResource("10_progression")
+
+[node name="DestinationMarker" type="Node3D" parent="."]
+script = ExtResource("4_marker")
+
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("3_camera")
+yaw_degrees = 45.0
+pitch_degrees = 55.0
+fov_degrees = 45.0
+distance_metres = 19.0
+
+[node name="InputFamilyTracker" type="Node" parent="."]
+script = ExtResource("5_family")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CalibrationOverlay" parent="CanvasLayer" instance=ExtResource("6_overlay")]
+
+[node name="CombatOverlay" parent="CanvasLayer" instance=ExtResource("7_combat")]
+
+[node name="EncounterOverlay" parent="CanvasLayer" instance=ExtResource("8_encounter")]
+
+[node name="LabOverlay" parent="CanvasLayer" instance=ExtResource("11_lab")]
+
+; The two Gate E modal surfaces are LAST in the CanvasLayer, so they draw over
+; every instrumentation card while they hold the paused world.
+[node name="ItemComparison" parent="CanvasLayer" instance=ExtResource("12_comparison")]
+
+[node name="PassiveUpgrade" parent="CanvasLayer" instance=ExtResource("13_passive")]
